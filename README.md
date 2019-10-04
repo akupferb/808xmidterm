@@ -7,9 +7,9 @@ Gotta Catch that Roadrunner!
 
 ## Authors
 
-Ryan Bates (rjb3vp)
-Ari Kupferberg (akupferb)
-Lydia Zoghbi (lydiazoghbi)
+* Ryan Bates (rjb3vp)
+* Ari Kupferberg (akupferb)
+* Lydia Zoghbi (lydiazoghbi)
 
 ## Notes
 
