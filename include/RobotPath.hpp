@@ -1,0 +1,7 @@
+#ifndef INCLUDE_ROBOTPATH_HPP_
+#define INCLUDE_ROBOTPATH_HPP_
+class RobotPath {
+
+
+}
+#endif // INCLUDE_ROBOTPATH_HPP_

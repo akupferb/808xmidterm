@@ -1,0 +1,7 @@
+#ifndef INCLUDE_ROBOTPOSITION_HPP_
+#define INCLUDE_ROBOTPOSITION_HPP_
+class RobotPosition {
+
+
+}
+#endif // INCLUDE_ROBOTPOSITION_HPP_

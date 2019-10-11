@@ -1,0 +1,7 @@
+#ifndef INCLUDE_ENVIRONMENT_HPP_
+#define INCLUDE_ENVIRONMENT_HPP_
+class Environment {
+
+
+}
+#endif // INCLUDE_ENVIRONMENT_HPP_
