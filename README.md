@@ -15,3 +15,9 @@ Gotta Catch that Roadrunner!
 
 There will be notes here.
 
+## Libraries
+
+Make sure these are downloaded (via apt or otherwise):
+
+libboost-all-dev
+
