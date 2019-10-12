@@ -11,7 +11,7 @@ if (COVERAGE)
     include(CodeCoverage)
     set(LCOV_REMOVE_EXTRA "'vendor/*'")
     setup_target_for_coverage(code_coverage test/cpp-test coverage)
-    set(COVERAGE_SRCS app/main.cpp include/lib.hpp)
+    set(COVERAGE_SRCS app/main.cpp app/RobotPosition.cpp app/RobotPath.cpp app/Robot.cpp app/Point.cpp app/PathPlanner.cpp app/Obstacle.cpp app/Environment.cpp include/RobotPosition.hpp include/RobotPath.hpp include/Robot.hpp include/Point.hpp include/PathPlanner.hpp include/Obstacle.hpp include/Environment.hpp)
 
     SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
     SET(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")

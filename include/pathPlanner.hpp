@@ -1,7 +1,0 @@
-#ifndef INCLUDE_PATHPLANNER_HPP_
-#define INCLUDE_PATHPLANNER_HPP_
-class PathPlanner {
-
-
-}
-#endif // INCLUDE_PATHPLANNER_HPP_
