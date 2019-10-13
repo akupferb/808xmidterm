@@ -1,5 +1,4 @@
 #include <iostream>
-#include <lambda/lambda.hpp>
 
 int main()
 {
