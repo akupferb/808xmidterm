@@ -6,6 +6,7 @@ class RobotPath {
 private:
     std::vector<RobotPosition> robotPositions;
 public:
+    RobotPath(std::vector<RobotPosition> newRobotPositions);
     std::vector<RobotPosition> getPositions();
     bool existsCollision();
     

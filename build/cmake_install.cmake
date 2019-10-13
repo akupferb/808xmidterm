@@ -1,4 +1,4 @@
-# Install script for directory: /home/oooo/Midterm1/ARLpathplanner
+# Install script for directory: /home/lydiazoghbi/Desktop/ARLpathplanner
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,11 +32,16 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/oooo/Midterm1/ARLpathplanner/build/app/cmake_install.cmake")
-  include("/home/oooo/Midterm1/ARLpathplanner/build/test/cmake_install.cmake")
-  include("/home/oooo/Midterm1/ARLpathplanner/build/vendor/googletest/googletest/cmake_install.cmake")
+  include("/home/lydiazoghbi/Desktop/ARLpathplanner/build/app/cmake_install.cmake")
+  include("/home/lydiazoghbi/Desktop/ARLpathplanner/build/test/cmake_install.cmake")
+  include("/home/lydiazoghbi/Desktop/ARLpathplanner/build/vendor/googletest/googletest/cmake_install.cmake")
 
 endif()
 
@@ -48,5 +53,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/oooo/Midterm1/ARLpathplanner/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/lydiazoghbi/Desktop/ARLpathplanner/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

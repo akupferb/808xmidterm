@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -14,12 +14,18 @@ Obstacle.hpp
 
 ../include/Obstacle.hpp
 Point.hpp
--
+../include/Point.hpp
 
 ../include/PathPlanner.hpp
+boost/numeric/ublas/vector.hpp
+-
+boost/numeric/ublas/io.hpp
+-
 Point.hpp
 -
 vector
+-
+cmath
 -
 
 ../include/Point.hpp
@@ -43,49 +49,43 @@ RobotPosition.hpp
 ../include/RobotPosition.hpp
 vector
 -
-Point.hpp
+Environment.hpp
 -
 
-/home/oooo/Midterm1/ARLpathplanner/app/Environment.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Environment.cpp
 Environment.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Environment.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Environment.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/Obstacle.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Obstacle.cpp
 Obstacle.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Obstacle.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Obstacle.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/PathPlanner.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/PathPlanner.cpp
 PathPlanner.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/PathPlanner.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/PathPlanner.hpp
+iostream
+-
 
-/home/oooo/Midterm1/ARLpathplanner/app/Point.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Point.cpp
 Point.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Point.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Point.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/Robot.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Robot.cpp
 Robot.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Robot.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Robot.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPath.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/RobotPath.cpp
 RobotPath.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPath.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/RobotPath.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPosition.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/RobotPosition.cpp
 RobotPosition.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPosition.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/RobotPosition.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/main.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/main.cpp
 iostream
 -
 lambda/lambda.hpp
--
-boost/lambda/lambda.hpp
--
-iostream
--
-iterator
--
-algorithm
 -
 
 /usr/include/boost/lambda/lambda.hpp

@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -14,37 +14,21 @@ Obstacle.hpp
 
 ../include/Obstacle.hpp
 Point.hpp
--
+../include/Point.hpp
 
 ../include/PathPlanner.hpp
+boost/numeric/ublas/vector.hpp
+-
+boost/numeric/ublas/io.hpp
+-
 Point.hpp
 -
 vector
+-
+cmath
 -
 
 ../include/Point.hpp
-
-../include/Robot.hpp
-vector
--
-RobotPosition.hpp
--
-RobotPath.hpp
--
-Point.hpp
--
-
-../include/RobotPath.hpp
-vector
--
-RobotPosition.hpp
--
-
-../include/RobotPosition.hpp
-vector
--
-Point.hpp
--
 
 ../test/../vendor/googletest/googletest/include/gtest/gtest-death-test.h
 gtest/internal/gtest-death-test-internal.h
@@ -318,39 +302,53 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/home/oooo/Midterm1/ARLpathplanner/app/Environment.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Environment.cpp
 Environment.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Environment.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Environment.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/Obstacle.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Obstacle.cpp
 Obstacle.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Obstacle.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Obstacle.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/PathPlanner.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/PathPlanner.cpp
 PathPlanner.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/PathPlanner.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/PathPlanner.hpp
+iostream
+-
 
-/home/oooo/Midterm1/ARLpathplanner/app/Point.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Point.cpp
 Point.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Point.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/app/Point.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/Robot.cpp
-Robot.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/Robot.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/EnvironmentTest.cpp
+gtest/gtest.h
+-
+Environment.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/Environment.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPath.cpp
-RobotPath.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPath.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/ObstacleTest.cpp
+gtest/gtest.h
+-
+Obstacle.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/Obstacle.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPosition.cpp
-RobotPosition.hpp
-/home/oooo/Midterm1/ARLpathplanner/app/RobotPosition.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/PathPlannerTest.cpp
+gtest/gtest.h
+-
+PathPlanner.hpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/PathPlanner.hpp
 
-/home/oooo/Midterm1/ARLpathplanner/test/main.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/PointTest.cpp
+gtest/gtest.h
+-
+Point.hpp
+-
+
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/main.cpp
 gtest/gtest.h
 -
 
-/home/oooo/Midterm1/ARLpathplanner/test/test.cpp
+/home/lydiazoghbi/Desktop/ARLpathplanner/test/test.cpp
 gtest/gtest.h
 -
 

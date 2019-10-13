@@ -5,6 +5,9 @@
 class Environment {
 private:
     std::vector<Obstacle> obstacles;
+public:
+    Environment(std::vector<Obstacle> allObstacles);
+    std::vector<Obstacle> getObstacles();
 
 };
 #endif // INCLUDE_ENVIRONMENT_HPP_

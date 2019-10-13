@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -540,21 +540,21 @@ sys/types.h
 src/gtest-internal-inl.h
 ../vendor/googletest/googletest/src/src/gtest-internal-inl.h
 
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/gtest-all.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/gtest-all.cc
 gtest/gtest.h
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/gtest/gtest.h
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/gtest/gtest.h
 src/gtest.cc
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/src/gtest.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/src/gtest.cc
 src/gtest-death-test.cc
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-death-test.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-death-test.cc
 src/gtest-filepath.cc
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-filepath.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-filepath.cc
 src/gtest-port.cc
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-port.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-port.cc
 src/gtest-printers.cc
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-printers.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-printers.cc
 src/gtest-test-part.cc
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-test-part.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-test-part.cc
 src/gtest-typed-test.cc
-/home/oooo/Midterm1/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-typed-test.cc
+/home/lydiazoghbi/Desktop/ARLpathplanner/vendor/googletest/googletest/src/src/gtest-typed-test.cc
 

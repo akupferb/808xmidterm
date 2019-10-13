@@ -5,5 +5,8 @@ private:
     double x, y, z;
 public:
     Point(double newX = 0, double newY = 0, double newZ = 0);
+    double getX();
+    double getY();
+    double getZ();
 };
 #endif // INCLUDE_POINT_HPP_

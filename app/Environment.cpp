@@ -7,3 +7,9 @@
 //
 
 #include "Environment.hpp"
+
+Environment::Environment(std::vector<Obstacle> allObstacles){
+   obstacles = allObstacles;
+}
+
+std::vector<Obstacle> Environment::getObstacles() {return obstacles;}

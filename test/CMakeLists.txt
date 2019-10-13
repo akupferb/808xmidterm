@@ -3,13 +3,14 @@ set(GTEST_SHUFFLE 1)
 add_executable(
     cpp-test
     main.cpp
-    ${CMAKE_SOURCE_DIR}/app/RobotPosition.cpp
-    ${CMAKE_SOURCE_DIR}/app/RobotPath.cpp
-    ${CMAKE_SOURCE_DIR}/app/Robot.cpp
-    ${CMAKE_SOURCE_DIR}/app/PathPlanner.cpp
+    PointTest.cpp
+    ObstacleTest.cpp
+    EnvironmentTest.cpp
+    PathPlannerTest.cpp
+    ${CMAKE_SOURCE_DIR}/app/Point.cpp
     ${CMAKE_SOURCE_DIR}/app/Obstacle.cpp
     ${CMAKE_SOURCE_DIR}/app/Environment.cpp
-    ${CMAKE_SOURCE_DIR}/app/Point.cpp
+    ${CMAKE_SOURCE_DIR}/app/PathPlanner.cpp
     test.cpp
 )
 

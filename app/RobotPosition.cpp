@@ -7,3 +7,12 @@
 //
 
 #include "RobotPosition.hpp"
+
+RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles){
+       jointPositions = newJointPositions;
+       jointAngles = newJointAngles;
+}
+
+bool RobotPosition::checkCollision(Environment environment){
+return false;
+}
