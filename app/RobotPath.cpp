@@ -14,6 +14,6 @@ RobotPath::RobotPath(std::vector<RobotPosition> newRobotPositions){
     std::vector<RobotPosition> RobotPath::getPositions() {return robotPositions;}
 
     bool RobotPath::existsCollision(){
-return true;
+return false;
 }
     

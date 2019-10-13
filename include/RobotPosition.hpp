@@ -9,6 +9,8 @@ private:
     std::vector<double> jointAngles;
 public:
     RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles);
+    std::vector<Point> getJoints();
+    std::vector<double> getAngles();
     bool checkCollision(Environment environment);
 };
 #endif // INCLUDE_ROBOTPOSITION_HPP_

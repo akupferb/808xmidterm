@@ -9,7 +9,5 @@ public:
     RobotPath(std::vector<RobotPosition> newRobotPositions);
     std::vector<RobotPosition> getPositions();
     bool existsCollision();
-    
-
 };
 #endif // INCLUDE_ROBOTPATH_HPP_
