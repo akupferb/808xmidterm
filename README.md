@@ -1,5 +1,7 @@
 # 808X Midterm Project
-
+[![Build Status](https://travis-ci.org/akupferb/ARLpathplanner.svg?branch=master)](https://travis-ci.org/akupferb/ARLpathplanner)
+[![Coverage Status](https://coveralls.io/repos/github/akupferb/ARLpathplanner/badge.svg?branch=master)](https://coveralls.io/github/akupferb/ARLpathplanner?branch=master)
+---
 Motion/Navigation: Manipulator arm path planner (IK solver)
 ```
 Gotta Catch that Roadrunner!
