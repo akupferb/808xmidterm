@@ -1,14 +1,17 @@
-//
-//  Environment.cpp
-//  Midterm
-//
-//  Created by Lydia Zoghbi on 10/11/19.
-//  Copyright © 2019 Lydia Zoghbi. All rights reserved.
-//
+/**
+ *  @file       Environment.cpp
+ *  @author     Lydia Zoghbi
+ *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @date       10/13/2019
+ *  @version    1.0
+ *
+ *  @brief      Definitions for Environment.hpp
+ *
+ */
 
 #include "Environment.hpp"
 
-Environment::Environment(std::vector<Obstacle> allObstacles){
+Environment::Environment(std::vector<Obstacle> allObstacles) {
    obstacles = allObstacles;
 }
 

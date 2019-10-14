@@ -1,14 +1,17 @@
-//
-//  RobotPosition.cpp
-//  Midterm
-//
-//  Created by Lydia Zoghbi on 10/11/19.
-//  Copyright © 2019 Lydia Zoghbi. All rights reserved.
-//
+/**
+ *  @file       RobotPosition.cpp
+ *  @author     Lydia Zoghbi
+ *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @date       10/13/2019
+ *  @version    1.0
+ *
+ *  @brief      Definitions for RobotPosition.hpp
+ *
+ */
 
 #include "RobotPosition.hpp"
 
-RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles){
+RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles) {
        jointPositions = newJointPositions;
        jointAngles = newJointAngles;
 }
@@ -16,6 +19,6 @@ RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<d
 std::vector<Point> RobotPosition::getJoints() {return jointPositions;}
 std::vector<double> RobotPosition::getAngles() {return jointAngles;}
 
-bool RobotPosition::checkCollision(Environment environment){
+bool RobotPosition::checkCollision(Environment environment) {
 return false;
 }
