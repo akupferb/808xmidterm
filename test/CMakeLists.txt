@@ -3,9 +3,7 @@ set(GTEST_SHUFFLE 1)
 add_executable(
     cpp-test
     main.cpp
-<<<<<<< HEAD
     test.cpp
-=======
     PointTest.cpp
     ObstacleTest.cpp
     EnvironmentTest.cpp
@@ -18,7 +16,6 @@ add_executable(
     ${CMAKE_SOURCE_DIR}/app/PathPlanner.cpp
     ${CMAKE_SOURCE_DIR}/app/RobotPosition.cpp
     ${CMAKE_SOURCE_DIR}/app/RobotPath.cpp
->>>>>>> 79ea138cbafc4d940b79be1bf366c21a190cd9dd
 )
 
 target_include_directories(cpp-test PUBLIC ../vendor/googletest/googletest/include 

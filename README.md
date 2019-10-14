@@ -6,6 +6,7 @@ Motion/Navigation: Manipulator arm path planner (IK solver)
 ```
 Gotta Catch that Roadrunner!
 ```
+
 This acts as a 
 -
 ## Licensing
@@ -32,8 +33,6 @@ TODO: gtest description
 
 ## Demo
 TODO: explain how the demo works
-
-
 
 ## Notes
 

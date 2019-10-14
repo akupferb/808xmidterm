@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-#include <iostream>
-#include <lib.hpp>
-
-int main()
-{
-    dummy();
-=======
 /*
  *  Distributed under the Boost Software License.
  *  Version 1.0 (See accompanying file LICENSE_1_0.txt
@@ -24,6 +16,5 @@ int main()
 #include <iostream>
 
 int main() {
->>>>>>> 79ea138cbafc4d940b79be1bf366c21a190cd9dd
     return 0;
 }
