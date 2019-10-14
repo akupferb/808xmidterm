@@ -1,0 +1,96 @@
+Done processing CMakeLists.txt
+Environment.cpp:20:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Done processing Environment.cpp
+Done processing main.cpp
+Obstacle.cpp:20:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Obstacle.cpp:21:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Done processing Obstacle.cpp
+PathPlanner.cpp:20:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+PathPlanner.cpp:21:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
+PathPlanner.cpp:24:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:25:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:26:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:28:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:29:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:30:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:32:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:33:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:34:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:36:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:37:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:38:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:39:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:43:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:44:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:48:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:49:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:50:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:50:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+PathPlanner.cpp:51:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:53:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:54:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:55:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:55:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+PathPlanner.cpp:56:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+PathPlanner.cpp:58:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Done processing PathPlanner.cpp
+Point.cpp:20:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Point.cpp:21:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Point.cpp:22:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+Done processing Point.cpp
+Done processing Robot.cpp
+RobotPath.cpp:22:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+Done processing RobotPath.cpp
+RobotPosition.cpp:19:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+Done processing RobotPosition.cpp
+Total errors found: 36
+
+Environment.hpp:27:  private: should be indented +1 space inside class Environment  [whitespace/indent] [3]
+Environment.hpp:29:  public: should be indented +1 space inside class Environment  [whitespace/indent] [3]
+Environment.hpp:30:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
+Environment.hpp:44:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+Environment.hpp:46:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing Environment.hpp
+Obstacle.hpp:27:  private: should be indented +1 space inside class Obstacle  [whitespace/indent] [3]
+Obstacle.hpp:30:  public: should be indented +1 space inside class Obstacle  [whitespace/indent] [3]
+Obstacle.hpp:30:  "public:" should be preceded by a blank line  [whitespace/blank_line] [3]
+Obstacle.hpp:31:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
+Obstacle.hpp:54:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing Obstacle.hpp
+PathPlanner.hpp:31:  private: should be indented +1 space inside class PathPlanner  [whitespace/indent] [3]
+PathPlanner.hpp:33:  public: should be indented +1 space inside class PathPlanner  [whitespace/indent] [3]
+PathPlanner.hpp:34:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
+PathPlanner.hpp:42:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing PathPlanner.hpp
+Point.hpp:25:  private: should be indented +1 space inside class Point  [whitespace/indent] [3]
+Point.hpp:27:  public: should be indented +1 space inside class Point  [whitespace/indent] [3]
+Point.hpp:27:  "public:" should be preceded by a blank line  [whitespace/blank_line] [3]
+Point.hpp:28:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
+Point.hpp:57:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing Point.hpp
+Robot.hpp:29:  private: should be indented +1 space inside class Robot  [whitespace/indent] [3]
+Robot.hpp:35:  public: should be indented +1 space inside class Robot  [whitespace/indent] [3]
+Robot.hpp:35:  "public:" should be preceded by a blank line  [whitespace/blank_line] [3]
+Robot.hpp:36:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
+Robot.hpp:56:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+Robot.hpp:58:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing Robot.hpp
+RobotPath.hpp:27:  private: should be indented +1 space inside class RobotPath  [whitespace/indent] [3]
+RobotPath.hpp:29:  public: should be indented +1 space inside class RobotPath  [whitespace/indent] [3]
+RobotPath.hpp:29:  "public:" should be preceded by a blank line  [whitespace/blank_line] [3]
+RobotPath.hpp:30:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
+RobotPath.hpp:52:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing RobotPath.hpp
+RobotPosition.hpp:27:  private: should be indented +1 space inside class RobotPosition  [whitespace/indent] [3]
+RobotPosition.hpp:30:  public: should be indented +1 space inside class RobotPosition  [whitespace/indent] [3]
+RobotPosition.hpp:30:  "public:" should be preceded by a blank line  [whitespace/blank_line] [3]
+RobotPosition.hpp:31:  Do not leave a blank line after "public:"  [whitespace/blank_line] [3]
+RobotPosition.hpp:37:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+RobotPosition.hpp:60:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+Done processing RobotPosition.hpp
+Total errors found: 36
+
+
+
+
+

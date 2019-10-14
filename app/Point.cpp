@@ -1,24 +1,27 @@
-<<<<<<< HEAD
-=======
 /*
  *  Distributed under the Boost Software License.
  *  Version 1.0 (See accompanying file LICENSE_1_0.txt
  *  or copy at http://www.boost.org/LICENSE_1_0.txt)
  */
 /**
- *  @file       main.cpp
+ *  @file       Point.cpp
  *  @author     Lydia Zoghbi
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
  *  @date       10/13/2019
  *  @version    1.0
  *
- *  @brief      Runs all unit tests
+ *  @brief      Definitions for Point.hpp
  *
  */
->>>>>>> 79ea138cbafc4d940b79be1bf366c21a190cd9dd
-#include <gtest/gtest.h>
 
-int main(int argc, char** argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
+#include "Point.hpp"
+
+Point::Point(double newX, double newY, double newZ) {
+   x = newX;
+   y = newY;
+   z = newZ;
 }
+
+double Point::getX() {return x;}
+double Point::getY() {return y;}
+double Point::getZ() {return z;}
