@@ -15,11 +15,11 @@ This software uses the open-source Boost and uses the Boost license, with small 
 
 ## Authors
 
-* Ryan Bates (rjb3vp)
+* Ryan Bates (rjb3vp)*
 Is an embedded software engineer of 5+ years experience.
-* Ari Kupferberg (akupferb)
+* Ari Kupferberg (akupferb)*
 Ari is on another continent.
-* Lydia Zoghbi (lydiazoghbi)
+* Lydia Zoghbi (lydiazoghbi)*
 She loves cats.
 
 ## Operation
@@ -36,7 +36,7 @@ TODO: explain how the demo works
 
 ## Notes
 
-There will be notes here.
+Branch 'codingfunctions' used for filling in the functions as defined in the UML.
 
 ## Dependencies/Libraries
 
