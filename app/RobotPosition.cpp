@@ -17,13 +17,13 @@
 #include "RobotPosition.hpp"
 
 RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles) {
-       jointPositions = newJointPositions;
-       jointAngles = newJointAngles;
+  jointPositions = newJointPositions;
+  jointAngles = newJointAngles;
 }
 
 std::vector<Point> RobotPosition::getJoints() {return jointPositions;}
 std::vector<double> RobotPosition::getAngles() {return jointAngles;}
 
 bool RobotPosition::checkCollision(Environment environment) {
-return false;
+  return false;
 }

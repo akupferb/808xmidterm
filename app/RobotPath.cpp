@@ -17,10 +17,11 @@
 #include "RobotPath.hpp"
 
 RobotPath::RobotPath(std::vector<RobotPosition> newRobotPositions) {
-    robotPositions = newRobotPositions;
+  robotPositions = newRobotPositions;
 }
-    std::vector<RobotPosition> RobotPath::getPositions() {return robotPositions;}
 
-    bool RobotPath::existsCollision() {
-return false;
+std::vector<RobotPosition> RobotPath::getPositions() {return robotPositions;}
+
+bool RobotPath::existsCollision() {
+  return false;
 }

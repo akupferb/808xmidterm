@@ -26,33 +26,35 @@
  */
 
 class Robot {
-private:
-    int linkCount;
-    std::vector<double> linkLengths;
-    Point initialEEPosition;
-    RobotPosition currentRobotPosition, goalPosition;
-    std::vector<RobotPath> path;
-public:
+ private:
+   int linkCount;
+   std::vector<double> linkLengths;
+   Point initialEEPosition;
+   RobotPosition currentRobotPosition, goalPosition;
+   std::vector<RobotPath> path;
 
-/**
- *  @brief      Constructor for class Robot 
- *  @param	Point of the robot's end effector position
- *  @return	Instance of robot
- */
-    explicit Robot(Point startingEEPosition);
+ public:
+  /**
+   *  @brief      Constructor for class Robot 
+   *  @param	Point of the robot's end effector position
+   *  @return	Instance of robot
+   */
+   explicit Robot(Point startingEEPosition);
 
-/**
- *  @brief      Computing the forward kinematics for Robot
- *  @param	Vector of Robot's joint angles as double
- *  @return	Vector of Point objects depicting Robot's joint positions
- */
-    std::vector<Point> computeFK(std::vector<double> jointAngles);
+  /**
+   *  @brief      Computing the forward kinematics for Robot
+   *  @param	Vector of Robot's joint angles as double
+   *  @return	Vector of Point objects depicting Robot's joint positions
+   */
+   std::vector<Point> computeFK(std::vector<double> jointAngles);
 
-/**
- *  @brief      Computing the inverse kinematics for Robot
- *  @param	Point of Robot's end effector target position
- *  @return	Vector of vector of RobotPosition object containing Points of joint positions
- */
-    std::vector<std::vector<RobotPosition>> computeIK(Point endEffectorPosition);
+  /**
+   *  @brief      Computing the inverse kinematics for Robot
+   *  @param	Point of Robot's end effector target position
+   *  @return	Vector of vector of RobotPosition object containing Points of joint positions
+   */
+   std::vector<std::vector<RobotPosition>> computeIK(Point endEffectorPosition);
 };
+
+
 #endif // INCLUDE_ROBOT_HPP_

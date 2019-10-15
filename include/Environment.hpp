@@ -24,23 +24,25 @@
  */
 
 class Environment {
-private:
-    std::vector<Obstacle> obstacles;
-public:
+ private:
+   std::vector<Obstacle> obstacles;
+   
+ public:
+  /**
+   *  @brief      Constructor for an Environment class object containing Obstacle elemements
+   *  @param      Vector of Obstacle class objects
+   *  @return 	Instance of Environment
+   */
+   explicit Environment(std::vector<Obstacle> allObstacles);
 
-/**
- *  @brief      Constructor for an Environment class object containing Obstacle elemements
- *  @param      Vector of Obstacle class objects
- *  @return 	Instance of Environment
- */
-    explicit Environment(std::vector<Obstacle> allObstacles);
-
-/**
- *  @brief      Obtaining obstacles from the Environment class object
- *  @param      None
- *  @return 	Vector of Obstacle objects
- */
-    std::vector<Obstacle> getObstacles();
+  /**
+   *  @brief      Obtaining obstacles from the Environment class object
+   *  @param      None
+   *  @return 	Vector of Obstacle objects
+   */
+   std::vector<Obstacle> getObstacles();
 
 };
+
+
 #endif // INCLUDE_ENVIRONMENT_HPP_

@@ -22,36 +22,38 @@
  */
 
 class Point {
-private:
-    double x, y, z;
-public:
+ private:
+   double x, y, z;
 
-/**
- *  @brief      Creating a Point class
- *  @param	Coordinates of a point as double
- *  @return	Instance of Point
- */
-    explicit Point(double newX = 0, double newY = 0, double newZ = 0);
+ public:
+  /**
+   *  @brief      Creating a Point class
+   *  @param	Coordinates of a point as double
+   *  @return	Instance of Point
+   */
+   explicit Point(double newX = 0, double newY = 0, double newZ = 0);
 
-/**
- *  @brief      Retrieving the x coordinate of a Point
- *  @param	None
- *  @return	Value of x double
- */
-    double getX();
+  /**
+   *  @brief      Retrieving the x coordinate of a Point
+   *  @param	None
+   *  @return	Value of x double
+   */
+   double getX();
 
-/**
- *  @brief      Retrieving the y coordinate of a Point
- *  @param	None
- *  @return	Value of y double
- */
-    double getY();
+  /**
+   *  @brief      Retrieving the y coordinate of a Point
+   *  @param	None
+   *  @return	Value of y double
+   */
+   double getY();
 
-/**
- *  @brief      Retrieving the z coordinate of a Point
- *  @param	None
- *  @return	Value of z double
- */
-    double getZ();
+  /**
+   *  @brief      Retrieving the z coordinate of a Point
+   *  @param	None
+   *  @return	Value of z double
+   */
+   double getZ();
 };
+
+
 #endif // INCLUDE_POINT_HPP_

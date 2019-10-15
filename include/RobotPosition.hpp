@@ -24,37 +24,39 @@
  */
 
 class RobotPosition {
-private:
-    std::vector<Point> jointPositions;
-    std::vector<double> jointAngles;
-public:
+ private:
+   std::vector<Point> jointPositions;
+   std::vector<double> jointAngles;
 
-/**
- *  @brief      Constructor for creating RobotPosition
- *  @param	Vector of Points for Robot's joints positions and vector of joint angles as double
- *  @return	Instance of RobotPosition
- */
-    RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles);
+ public:
+  /**
+   *  @brief      Constructor for creating RobotPosition
+   *  @param	Vector of Points for Robot's joints positions and vector of joint angles as double
+   *  @return	Instance of RobotPosition
+   */
+   RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles);
 
-/**
- *  @brief      Retrieve joints from RobotPosition class
- *  @param	None
- *  @return	Vector of Points of Robot's joints positions
- */
-    std::vector<Point> getJoints();
+  /**
+   *  @brief      Retrieve joints from RobotPosition class
+   *  @param	None
+   *  @return	Vector of Points of Robot's joints positions
+   */
+   std::vector<Point> getJoints();
 
-/**
- *  @brief      Retrieve angles from RobotPosition class
- *  @param	None
- *  @return	Vector of Robot's joints angles as double
- */
-    std::vector<double> getAngles();
+  /**
+   *  @brief      Retrieve angles from RobotPosition class
+   *  @param	None
+   *  @return	Vector of Robot's joints angles as double
+   */
+   std::vector<double> getAngles();
 
-/**
- *  @brief      Check for collision with obstacles
- *  @param	Environment containing obstacles' location and radius
- *  @return	Boolean as true for collision
- */
-    bool checkCollision(Environment environment);
+  /**
+   *  @brief      Check for collision with obstacles
+   *  @param	Environment containing obstacles' location and radius
+   *  @return	Boolean as true for collision
+   */
+   bool checkCollision(Environment environment);
 };
+
+
 #endif // INCLUDE_ROBOTPOSITION_HPP_

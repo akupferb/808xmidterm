@@ -28,15 +28,17 @@
  */
 
 class PathPlanner {
-private:
-    double resolution = 0.1;
-public:
+ private:
+   double resolution = 0.1;
 
-/**
- *  @brief      Finding the coordinates of a straight path with a pre-specified resolution
- *  @param	Point class of a starting point and a Point class of the target end point
- *  @return	Vector of Point classes containing the coordinates of the discretized straight line path
- */
-    std::vector<Point> findStraightPath(Point startPoint, Point endPoint);
+ public:
+  /**
+   *  @brief      Finding the coordinates of a straight path with a pre-specified resolution
+   *  @param	Point class of a starting point and a Point class of the target end point
+   *  @return	Vector of Point classes containing the coordinates of the discretized straight line path
+   */
+   std::vector<Point> findStraightPath(Point startPoint, Point endPoint);
 };
+
+
 #endif // INCLUDE_PATHPLANNER_HPP_

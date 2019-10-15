@@ -24,25 +24,24 @@
  */
 
 class Obstacle {
-private:
-    Point centroid;
-    double radius;
-public:
+ private:
+   Point centroid;
+   double radius;
+   
+ public:
+  /**
+   *  @brief      Constructor for the class Obstacle 
+   *  @param	Point class of obstacle centroid position and corresponding radius
+   *  @return	Instance of Obstacle 
+   */
+   Obstacle(Point startCentroid, double startRadius);
 
-/**
- *  @brief      Constructor for the class Obstacle 
- *  @param	Point class of obstacle centroid position and corresponding radius
- *  @return	Instance of Obstacle 
- */
-    Obstacle(Point startCentroid, double startRadius);
-
-/**
- *  @brief      Obtaining the centroid of the Obstacle
- *  @param	None
- *  @return	Point class of Obstacle's centroid position (which can subsequently provide the (x, y, z) coordinates
- */
-    Point getCentroid();
-
+  /**
+   *  @brief      Obtaining the centroid of the Obstacle
+   *  @param	None
+   *  @return	Point class of Obstacle's centroid position (which can subsequently provide the (x, y, z) coordinates
+   */
+   Point getCentroid();
 
 /**
  *  @brief      Obtaining the radius of the Obstacle
@@ -51,4 +50,6 @@ public:
  */
     double getRadius();
 };
+
+
 #endif // INCLUDE_OBSTACLE_HPP_
