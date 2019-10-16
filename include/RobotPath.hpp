@@ -5,9 +5,9 @@
  */
 /**
  *  @file       RobotPath.hpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Header file for consructing a robot path 
@@ -16,6 +16,7 @@
 
 #ifndef INCLUDE_ROBOTPATH_HPP_
 #define INCLUDE_ROBOTPATH_HPP_
+
 #include <vector>
 #include <RobotPosition.hpp>
 
@@ -26,13 +27,14 @@
 class RobotPath {
  private:
    std::vector<RobotPosition> robotPositions;
+   
  public:
   /**
    *  @brief      Constructor for a RobotPath object
    *  @param	Vector of RobotPosition class containing the position of Robot's joints
    *  @return	Instance of RobotPath
    */
-   explicit RobotPath(std::vector<RobotPosition> newRobotPositions);
+   explicit RobotPath(std::vector<RobotPosition>);
 
   /**
    *  @brief      Retrieve positions from the RobotPosition class

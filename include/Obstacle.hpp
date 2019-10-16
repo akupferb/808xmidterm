@@ -5,9 +5,9 @@
  */
 /**
  *  @file       Obstacle.hpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Header file for defining an obstacle
@@ -16,6 +16,7 @@
 
 #ifndef INCLUDE_OBSTACLE_HPP_
 #define INCLUDE_OBSTACLE_HPP_
+
 #include "Point.hpp"
 
 /**
@@ -34,7 +35,7 @@ class Obstacle {
    *  @param	Point class of obstacle centroid position and corresponding radius
    *  @return	Instance of Obstacle 
    */
-   Obstacle(Point startCentroid, double startRadius);
+   Obstacle(Point, double);
 
   /**
    *  @brief      Obtaining the centroid of the Obstacle
@@ -43,12 +44,12 @@ class Obstacle {
    */
    Point getCentroid();
 
-/**
- *  @brief      Obtaining the radius of the Obstacle
- *  @param	None
- *  @return	Double of Obstacle's radius.
- */
-    double getRadius();
+  /**
+   *  @brief      Obtaining the radius of the Obstacle
+   *  @param	None
+   *  @return	Double of Obstacle's radius.
+   */
+   double getRadius();
 };
 
 

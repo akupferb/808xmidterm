@@ -5,9 +5,9 @@
  */
 /**
  *  @file       Point.hpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Header file for consructing a Point class representing cartesian coordinate points. 

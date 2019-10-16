@@ -5,9 +5,9 @@
  */
 /**
  *  @file       Environment.hpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Header file for defining an environment
@@ -16,6 +16,7 @@
 
 #ifndef INCLUDE_ENVIRONMENT_HPP_
 #define INCLUDE_ENVIRONMENT_HPP_
+
 #include <vector>
 #include <Obstacle.hpp>
 
@@ -33,7 +34,7 @@ class Environment {
    *  @param      Vector of Obstacle class objects
    *  @return 	Instance of Environment
    */
-   explicit Environment(std::vector<Obstacle> allObstacles);
+   explicit Environment(std::vector<Obstacle>);
 
   /**
    *  @brief      Obtaining obstacles from the Environment class object

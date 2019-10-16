@@ -5,9 +5,9 @@
  */
 /**
  *  @file       RobotPosition.hpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Header file for consructing a RobotPosition class 
@@ -16,6 +16,7 @@
 
 #ifndef INCLUDE_ROBOTPOSITION_HPP_
 #define INCLUDE_ROBOTPOSITION_HPP_
+
 #include <vector>
 #include <Environment.hpp>
 
@@ -34,7 +35,7 @@ class RobotPosition {
    *  @param	Vector of Points for Robot's joints positions and vector of joint angles as double
    *  @return	Instance of RobotPosition
    */
-   RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles);
+   RobotPosition(std::vector<Point>, std::vector<double>);
 
   /**
    *  @brief      Retrieve joints from RobotPosition class
@@ -55,7 +56,7 @@ class RobotPosition {
    *  @param	Environment containing obstacles' location and radius
    *  @return	Boolean as true for collision
    */
-   bool checkCollision(Environment environment);
+   bool checkCollision(Environment);
 };
 
 

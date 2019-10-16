@@ -5,9 +5,9 @@
  */
 /**
  *  @file       PathPlanner.cpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Definitions for PathPlanner.hpp
@@ -50,9 +50,9 @@ std::vector<Point> PathPlanner::findStraightPath(Point startPoint, Point endPoin
   pathPoints.push_back(cartesianPoint);
 
   for (int i = 1; i< size; i++) {
-  Point temporaryPoint = pathPoints[i-1];
-  cartesianPoint = Point(temporaryPoint.getX() + increment*xDirection, temporaryPoint.getY() + increment*yDirection, temporaryPoint.getZ() + increment*zDirection);
-  pathPoints.push_back(cartesianPoint);
+    Point temporaryPoint = pathPoints[i-1];
+    cartesianPoint = Point(temporaryPoint.getX() + increment*xDirection, temporaryPoint.getY() + increment*yDirection, temporaryPoint.getZ() + increment*zDirection);
+    pathPoints.push_back(cartesianPoint);
   }
   return pathPoints;
 }
