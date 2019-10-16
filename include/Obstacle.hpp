@@ -26,9 +26,9 @@
 
 class Obstacle {
  private:
-   Point centroid;
-   double radius;
-   
+  Point centroid;
+  double radius;
+
  public:
   /**
    *  @brief      Constructor for the class Obstacle 

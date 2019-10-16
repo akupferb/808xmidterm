@@ -16,16 +16,7 @@
 
 #include <cmath>
 #include <vector>
-#include <boost/numeric/ublas/matrix.hpp>
 #include "Robot.hpp"
-
- private:
-   int numberLinks = 6;
-   std::vector<double> linkLengths;
-   Point initialEEPosition;
-   RobotPosition currentRobotPosition, goalPosition;
-   std::vector<RobotPath> path;
-   std::vector<std::vector<double>> dhParams;
 
 explicit Robot::Robot(Point startingEEPosition) {
   initialEEPosition = startingEEPosition;
@@ -45,7 +36,7 @@ matrix<double> Robot::computeATransform(vector<double> dhRow) {
 }
 
 std::vector<Point> Robot::computeFK(std::vector<double> jointAngles) {
-  dhparams[end][:] = jointAngles; // Might need to transpose... indexing correct?
+  dhparams[end][1:6] = jointAngles; // Might need to transpose... indexing correct?
   
 // Initialize Matrices
 
