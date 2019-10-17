@@ -5,9 +5,9 @@
  */
 /**
  *  @file       RobotPosition.cpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Definitions for RobotPosition.hpp
@@ -22,6 +22,7 @@ RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<d
 }
 
 bool RobotPosition::checkCollision(Environment environment) {
+  std::vector<Obstacle> obs = environment.getObstacles();
   return false;
 }
 

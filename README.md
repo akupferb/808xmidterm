@@ -22,11 +22,31 @@ Ari is on another continent.
 * Lydia Zoghbi (lydiazoghbi)*
 She loves cats.
 
+## To Do
+* Create unit tests for Robot Class methods
+* Complete Inverse Kinematics
+* Create Obstacle Space
+* Create collision checker functionality
+
 ## Operation
 TODO: note how user inputs values and what the software does
 
+## Dependencies/Libraries
+
+Make sure these are downloaded (via apt or otherwise):
+  libboost-all-dev
+
 ## Run
-TODO: cmake and make notes
+```
+git clone https://github.com/akupferb/ARLpathplanner.git
+cd ARLpathplanner
+mkdir build
+cd build
+cmake ..
+make
+Run tests: ./test/cpp-test
+Run program: ./app/shell-app
+```
 
 ## Test
 TODO: gtest description
@@ -36,12 +56,7 @@ TODO: explain how the demo works
 
 ## Notes
 
-Branch 'codingfunctions' used for filling in the functions as defined in the UML.
-
-## Dependencies/Libraries
-
-Make sure these are downloaded (via apt or otherwise):
-  libboost-all-dev
+Branch 'codingfunctions' used for implementing the functions as defined in the UML.
 
 ## Known Issues/Bugs
 

@@ -16,54 +16,75 @@
 
 #include <cmath>
 #include <vector>
+#include <boost/numeric/ublas/matrix.hpp>
 #include "Robot.hpp"
+#include <RobotPosition.hpp>
+#include <RobotPath.hpp>
+#include <Point.hpp>
 
-explicit Robot::Robot(Point startingEEPosition) {
-  initialEEPosition = startingEEPosition;
+Robot::Robot(const Point& startingPos): initialEEPosition(startingPos) {
 }
 
-matrix<double> Robot::computeATransform(vector<double> dhRow) {
+boost::numeric::ublas::matrix<double> Robot::computeATransform(std::vector<double> dhRow) {
   double a = dhRow[0];
   double alpha = dhRow[1];
   double d = dhRow[2];
-  double theta = dhRow[3];m 
-  matrix<double> aTransform (4, 4);
-  aTransform = [cos(theta), -sin(theta)*cos(alpha), sin(theta)*sin(alpha), a*cos(theta);
-				sin(theta), cos(theta)*cos(alpha), -cos(theta)*sin(alpha), a*sin(theta);
-					0,          sin(alpha),            cos(alpha),           d;
-					0,               0,                     0,               0];
+  double theta = dhRow[3]; 
+  boost::numeric::ublas::matrix<double> aTransform (4, 4);
+  
+  // Initialize 'A' matrix variables
+  std::vector<double> aTerms = {cos(theta), -sin(theta)*cos(alpha), sin(theta)*sin(alpha), a*cos(theta), sin(theta), cos(theta)*cos(alpha), -cos(theta)*sin(alpha), a*sin(theta), 0, sin(alpha), cos(alpha), d, 0, 0, 0, 1};
+  
+  int i,j = 0;
+  for (auto& term : aTerms) {
+    aTransform (i, j) = term;
+    j++;
+    if (j == 6) {
+      i++;
+      j = 0;
+    }
+  }
+
   return aTransform;
 }
 
-std::vector<Point> Robot::computeFK(std::vector<double> jointAngles) {
-  dhparams[end][1:6] = jointAngles; // Might need to transpose... indexing correct?
+std::vector<Point> Robot::computeFk(std::vector<double> jointAngles) {
+  int i = 0;
+  for (auto& element : jointAngles) {
+    dhParams[6][i] = element;
+    i++;
+  }
+  //dhparams[6][1:6] = jointAngles; // Might need to transpose... indexing correct?
   
 // Initialize Matrices
 
-  matrix<double> aTransform (4, 4),  tTransform (4, 4) previousTransform (4, 4);
-  std::vector<matrix<double> (4, 4)> tTransforms; // Check syntaxing ...
-  identity_matrix<double> identity (4, 4);
+  boost::numeric::ublas::matrix<double> aTransform (4, 4),  tTransform (4, 4), previousTransform (4, 4);
+  std::vector<boost::numeric::ublas::matrix<double>> tTransforms; // Check syntaxing ...
+  boost::numeric::ublas::identity_matrix<double> identity (4, 4);
   previousTransform = identity;
   
 // Loop through A matrices to get T matrices
 
   for (auto& row : dhParams) { // Or something like this...
-    aTransform = computeATransform(dhparams[row]);
-	tTransform = prod(previousTransform, aTransform);
-	previousTransform = tTransform;
-	tTransforms.push_back(tTransform);
+    aTransform = computeATransform(row);
+	 tTransform = prod(previousTransform, aTransform);
+	 previousTransform = tTransform;
+	 tTransforms.push_back(tTransform);
   }
 
   std::vector<Point> points;
 // Pull points from T matrices:
-  for (auto& m : tTranforms) {
-     Point point(m (1, 4), m (2, 4), m (3, 4));
+  for (auto& p : tTransforms) {
+    Point point(p (1, 4), p (2, 4), p (3, 4));
 	 points.push_back(point);
   }
   return points;	
 }
 
-matrix<double> Robot::computeJacobian(robotPosition, matrix<double>) {}
-std::vector<Point> Robot::computeFK(std::vector<double> jointAngles) {}
+boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robotPosition, boost::numeric::ublas::matrix<boost::numeric::ublas::matrix<double>> tTransforms) {
+  std::vector<double> angles = robotPosition.getAngles();
+  std::vector<Point> joints = robotPosition.getJoints();
+  return tTransforms (1, 1);
+}
 
-std::vector<std::vector<RobotPosition>> Robot::computeIK(Point endEffectorPosition) {}
+//std::vector<std::vector<RobotPosition>> Robot::computeIK(Point endEffectorPosition) {}
