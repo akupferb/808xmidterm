@@ -74,7 +74,7 @@ class Robot {
    *  @param	Point of Robot's end effector target position
    *  @return	Vector of vector of RobotPosition object containing Points of joint positions
    */
-   std::vector<std::vector<RobotPosition>> computeIK(Point);
+   std::vector<std::vector<RobotPosition>> computeIK(PathPlanner pathToFollow);
 };
 
 
