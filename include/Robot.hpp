@@ -22,6 +22,7 @@
 #include <RobotPosition.hpp>
 #include <RobotPath.hpp>
 #include <Point.hpp>
+#include <PathPlanner.hpp>
 
 /**
  *  @brief      Class for creating a Robot object containing useful information about the system
@@ -36,26 +37,26 @@ class Robot {
    std::vector<std::vector<double>> dhParams;
    
   /**
-   *  @brief      Compute the intermediate transformation between two DH frames
-   *  @param	DH Table as matrix double
+   *  @brief     Compute the intermediate transformation between two DH frames
+   *  @param	 DH Table as matrix double
    *  @return	'A' transformation matrix
    */
    boost::numeric::ublas::matrix<double> computeATransform(std::vector<double>);
   /**
-   *  @brief      Computing the forward kinematics for the Robot
+   *  @brief    Computing the forward kinematics for the Robot
    *  @param	Vector of Robot's joint angles as double
    *  @return	Vector of Point objects depicting Robot's joint positions
    */
    std::vector<Point> computeFk(std::vector<double> jointAngles);
   /**
-   *  @brief      Compute the Jacobian
-   *  @param	Object of Class RobotPosition
-   *  @param	2D Matrix of A transformations
-   *  @return	Jacobian matrix
+   *  @brief    Compute the Jacobian
+   *  @param	Object of Class RobotPosition 
+   *  @param	A vector of 2D transformation matrices
+   *  @return	Pseudo-inverse of the Jacobian matrix
    */
-   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition, boost::numeric::ublas::matrix<boost::numeric::ublas::matrix<double>>);
+   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition robotPosition, std::vector<boost::numeric::ublas::matrix<double>> tTransforms);
   /**
-   *  @brief      Computing the forward kinematics for the Robot
+   *  @brief    Computing the forward kinematics for the Robot
    *  @param	Vector of Robot's joint angles as double
    *  @return	Vector of Point objects depicting Robot's joint positions
    */
@@ -63,18 +64,18 @@ class Robot {
 
  public:
   /**
-   *  @brief      Constructor for class Robot 
+   *  @brief    Constructor for class Robot 
    *  @param	Point of the robot's end effector position
    *  @return	Instance of robot
    */
    explicit Robot(const Point& startingPos);
 
   /**
-   *  @brief      Computing the inverse kinematics for Robot
-   *  @param	Point of Robot's end effector target position
-   *  @return	Vector of vector of RobotPosition object containing Points of joint positions
+   *  @brief    Computing the inverse kinematics for Robot's generated path
+   *  @param	Vector of Robot's path
+   *  @return	Vector of RobotPosition object containing Points of joint positions
    */
-   std::vector<std::vector<RobotPosition>> computeIK(PathPlanner pathToFollow);
+   std::vector<RobotPosition> computeIK(PathPlanner pathToFollow);
 };
 
 
