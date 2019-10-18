@@ -15,6 +15,7 @@
  */
 
 #include "RobotPosition.hpp"
+#include <math.h>
 
 RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<double> newJointAngles) {
   jointPositions = newJointPositions;
@@ -22,8 +23,22 @@ RobotPosition::RobotPosition(std::vector<Point> newJointPositions, std::vector<d
 }
 
 bool RobotPosition::checkCollision(Environment environment) {
-  std::vector<Obstacle> obs = environment.getObstacles();
-  return false;
+  std::vector<Obstacle> obstacles = environment.getObstacles();
+  for (auto obstacle : obstacles) {
+    for (auto jointPoint : jointPositions) {
+      // distance//collision formula is:
+      // sqrt(deltaX^2 + deltaY^2 + deltaZ^2) < radiusDistance
+      // square roots are expensive, so it accepted practice to test the squares instead, as:
+      // sqrt(deltaX^2 + deltaY^2 + deltaZ^2) < radiusDistance
+      if ((pow((obstacle.getCentroid().getX() - jointPoint.getX()), 2) + 
+           pow((obstacle.getCentroid().getY() - jointPoint.getY()), 2) + 
+           pow((obstacle.getCentroid().getZ() - jointPoint.getZ()), 2))
+           < pow(obstacle.getRadius(), 2)) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 std::vector<Point> RobotPosition::getJoints() {return jointPositions;}
