@@ -19,10 +19,13 @@
 
 #include <vector>
 #include <boost/numeric/ublas/matrix.hpp>
+#include <boost/math/constants/constants.hpp>
 #include <RobotPosition.hpp>
 #include <RobotPath.hpp>
 #include <Point.hpp>
 #include <PathPlanner.hpp>
+
+double Pi = boost::math::constants::pi<double>();
 
 /**
  *  @brief      Class for creating a Robot object containing useful information about the system
@@ -31,10 +34,10 @@
 class Robot {
  private:
    int numberLinks = 6;
-   std::vector<double> linkLengths;
    Point initialEEPosition;
    std::vector<RobotPath> path;
-   std::vector<std::vector<double>> dhParams;
+   std::vector<std::vector<double>> dhParams{{770, Pi/2, 750, 0},{1050, 0, 0, 0},{200, Pi/2, 0, 0},{0, -Pi/2, 1705, 0},{0, Pi/2, 0, 0},{0, 0, 325, 0}};
+   std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
    
   /**
    *  @brief     Compute the intermediate transformation between two DH frames
@@ -47,20 +50,14 @@ class Robot {
    *  @param	Vector of Robot's joint angles as double
    *  @return	Vector of Point objects depicting Robot's joint positions
    */
-   std::vector<Point> computeFk(std::vector<double> jointAngles);
+   std::vector<Point> computeFk(std::vector<double>);
   /**
    *  @brief    Compute the Jacobian
    *  @param	Object of Class RobotPosition 
    *  @param	A vector of 2D transformation matrices
    *  @return	Pseudo-inverse of the Jacobian matrix
    */
-   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition robotPosition, std::vector<boost::numeric::ublas::matrix<double>> tTransforms);
-  /**
-   *  @brief    Computing the forward kinematics for the Robot
-   *  @param	Vector of Robot's joint angles as double
-   *  @return	Vector of Point objects depicting Robot's joint positions
-   */
-   std::vector<Point> computeFK(std::vector<double> jointAngles);
+   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition);
 
  public:
   /**
@@ -75,7 +72,7 @@ class Robot {
    *  @param	Vector of Robot's path
    *  @return	Vector of RobotPosition object containing Points of joint positions
    */
-   std::vector<RobotPosition> computeIK(PathPlanner pathToFollow);
+   std::vector<RobotPosition> computeIK(PathPlanner);
 };
 
 
