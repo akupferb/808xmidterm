@@ -73,6 +73,14 @@ class Robot {
    *  @return	Vector of RobotPosition object containing Points of joint positions
    */
    std::vector<RobotPosition> computeIK(PathPlanner);
+
+  /**
+   *  @brief    Computes cross product of the two input vectors
+   *  @param	Vector to compute cross product of (1 of 2)
+   *  @param	Vector to compute cross product of (2 of 2)
+   *  @return	Vector of the resultant cross product
+   */
+   boost::numeric::ublas::vector<double> crossProduct(boost::numeric::ublas::vector<double> vector1, boost::numeric::ublas::vector<double>vector2);
 };
 
 

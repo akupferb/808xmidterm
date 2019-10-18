@@ -119,6 +119,12 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
 }
 
 
+boost::numeric::ublas::vector<double> crossProduct(boost::numeric::ublas::vector<double> vector1, boost::numeric::ublas::vector<double>vector2) {
+  boost::numeric::ublas::vector<double> resultVector(3);
+
+  return resultVector;
+}
+
 
 
 
