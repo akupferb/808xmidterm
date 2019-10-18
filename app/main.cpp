@@ -14,6 +14,7 @@
  *
  */
 #include <iostream>
+#include <Eigen/QR>
 
 using std::cout;
 using std::endl;
