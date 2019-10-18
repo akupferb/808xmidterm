@@ -17,7 +17,7 @@
 #include <cmath>
 #include <vector>
 #include <boost/numeric/ublas/matrix.hpp>
-#include <boost/math/constants/constants.hpp>
+#include <boost/geometry/arithmetic/cross_product.hpp> 
 #include "Robot.hpp"
 #include <RobotPosition.hpp>
 #include <RobotPath.hpp>
@@ -85,40 +85,6 @@ std::vector<Point> Robot::computeFk(std::vector<double> jointAngles) {
   return points;	
 }
 
-
-boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robotPosition) {
-
-  std::vector<Point> joints = robotPosition.getJoints(); //Get all the joint positions in Point
-  boost::numeric::ublas::vector<double> zAxes (3);
-  zAxes.insert_element(0,0);
-  zAxes.insert_element(0,1);
-  zAxes.insert_element(1,2); 
-
-  boost::numeric::ublas::matrix<double> jacobian; 
-  boost::numeric::ublas::vector<double> jacobianPopulating (3);
-
-  int index = 0;
-  for( auto& joint : joints) {
-    Point robotEEPosition = joints[6];
-    Point robotJointPosition = joint;
-    double differenceInX = robotEEPosition.getX() - robotJointPosition.getX();
-    double differenceInY = robotEEPosition.getY() - robotJointPosition.getY();
-    double differenceInZ = robotEEPosition.getZ() - robotJointPosition.getZ();
-    boost::numeric::ublas::vector<double> differenceVector (3);
-    differenceVector.insert_element(differenceInX, 0);
-    differenceVector.insert_element(differenceInY, 1);
-    differenceVector.insert_element(differenceInZ, 2);
-
-    boost::numeric::ublas::vector<double> dummyVector = prod(tTransformations[index],zAxes);
-    index++;
-// Add the columns for the Jacobian
-
-
-  }
-  return jacobian;
-}
-
-
 boost::numeric::ublas::vector<double> crossProduct(boost::numeric::ublas::vector<double> vector1, boost::numeric::ublas::vector<double>vector2) {
   boost::numeric::ublas::vector<double> resultVector(3);
   resultVector(0) = vector1(1)*vector2(2)-vector1(2)*vector2(1);
@@ -129,11 +95,42 @@ boost::numeric::ublas::vector<double> crossProduct(boost::numeric::ublas::vector
 }
 
 
+boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robotPosition) {
+
+  // Get all the joint positions in Point
+  std::vector<Point> joints = robotPosition.getJoints(); 
+  boost::numeric::ublas::vector<double> zAxes (3);
+  zAxes(0) = 0;
+  zAxes(1) = 0;
+  zAxes(2) = 1;
+
+  boost::numeric::ublas::matrix<double> jacobian (6,6); 
+
+  int index = 0;
+  for( auto& joint : joints) {
+    Point robotEEPosition = joints[6];
+    Point robotJointPosition = joint;
+    double differenceInX = robotEEPosition.getX() - robotJointPosition.getX();
+    double differenceInY = robotEEPosition.getY() - robotJointPosition.getY();
+    double differenceInZ = robotEEPosition.getZ() - robotJointPosition.getZ();
+    boost::numeric::ublas::vector<double> differenceVector (3);
+	differenceVector(0) = differenceInX;
+	differenceVector(1) = differenceInY;
+	differenceVector(2) = differenceInZ;
+
+    boost::numeric::ublas::vector<double> transformedZAxes = prod(tTransformations[index],zAxes);
+    boost::numeric::ublas::vector<double> crossProductVector = crossProduct(transformedZAxes, differenceVector); 
+     
+	// Populate the Jacobian's columns iteratively
+    std::vector<double> iterator = {0, 1, 2};  
+    for (auto& element : iterator){
+		jacobian(element, index) = crossProductVector(element);
+		jacobian(element, index+3) = transformedZAxes(element);
+	};
+
+    index++;
+  };
+  return jacobian;
+}
 
 
-
-
-
-
-
-//std::vector<std::vector<RobotPosition>> Robot::computeIK(Point endEffectorPosition) {}
