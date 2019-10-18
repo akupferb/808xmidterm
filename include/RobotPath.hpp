@@ -48,7 +48,7 @@ class RobotPath {
    *  @param	None
    *  @return	Boolean true for collision with obstacles
    */
-   bool existsCollision();
+   bool existsCollision(Environment environment);
 };
 
 

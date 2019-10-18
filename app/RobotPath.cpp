@@ -20,7 +20,7 @@ RobotPath::RobotPath(std::vector<RobotPosition> newRobotPositions) {
   robotPositions = newRobotPositions;
 }
 
-bool RobotPath::existsCollision() {
+bool RobotPath::existsCollision(Environment environment) {
   return false;
 }
 

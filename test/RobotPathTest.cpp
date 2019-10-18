@@ -104,7 +104,10 @@ TEST(RobotPath, Boolean) {
    
    RobotPath newRobotPath(newRobotPositions);
 
-   bool collisionCheck = newRobotPath.existsCollision();
+   std::vector<Obstacle> allObstacles;;   
+   Environment dummyEnvironment(allObstacles);
+
+   bool collisionCheck = newRobotPath.existsCollision(dummyEnvironment);
 
    ASSERT_FALSE(collisionCheck);
 }
