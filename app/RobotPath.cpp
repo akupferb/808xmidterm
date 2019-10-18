@@ -21,6 +21,12 @@ RobotPath::RobotPath(std::vector<RobotPosition> newRobotPositions) {
 }
 
 bool RobotPath::existsCollision(Environment environment) {
+  std::vector<Obstacle> obstacles = environment.getObstacles();
+  for (auto position : robotPositions) {
+    if (!(position.checkCollision(environment))) {
+      return true;
+    }
+  }
   return false;
 }
 
