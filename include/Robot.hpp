@@ -25,7 +25,6 @@
 #include <Point.hpp>
 #include <PathPlanner.hpp>
 
-double Pi = boost::math::constants::pi<double>();
 
 /**
  *  @brief      Class for creating a Robot object containing useful information about the system
@@ -36,7 +35,12 @@ class Robot {
    int numberLinks = 6;
    Point initialEEPosition;
    std::vector<RobotPath> path;
-   std::vector<std::vector<double>> dhParams{{770, Pi/2, 750, 0},{1050, 0, 0, 0},{200, Pi/2, 0, 0},{0, -Pi/2, 1705, 0},{0, Pi/2, 0, 0},{0, 0, 325, 0}};
+   std::vector<std::vector<double>> dhParams{
+     {770, boost::math::constants::pi<double>()/2, 750, 0},
+     {1050, 0, 0, 0},{200, boost::math::constants::pi<double>()/2, 0, 0},
+     {0, -1 * boost::math::constants::pi<double>()/2, 1705, 0},{0, boost::math::constants::pi<double>()/2, 0, 0},
+     {0, 0, 325, 0}};
+
    std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
    
   /**
@@ -80,7 +84,15 @@ class Robot {
    *  @param	Vector to compute cross product of (2 of 2)
    *  @return	Vector of the resultant cross product
    */
-   boost::numeric::ublas::vector<double> crossProduct(boost::numeric::ublas::vector<double> vector1, boost::numeric::ublas::vector<double>vector2);
+   boost::numeric::ublas::vector<double> crossProduct(boost::numeric::ublas::vector<double> vector1, boost::numeric::ublas::vector<double> vector2);
+
+
+  /**
+   *  @brief    Computes the Moore-Penrose pseudoinverse
+   *  @param	Input matrix to find the pseudoinverse of
+   *  @return	Pseudoinverse matrix result
+   */
+   boost::numeric::ublas::matrix<double> penroseInverseMatrix(boost::numeric::ublas::matrix<double> mat);
 };
 
 
