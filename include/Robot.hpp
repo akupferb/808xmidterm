@@ -34,6 +34,7 @@ class Robot {
  private:
    int numberLinks = 6;
    Point initialEEPosition;
+   std::vector<double> initialJointAngles = {0, 0, 0, 0, 0, 0};
    std::vector<RobotPath> path;
    std::vector<std::vector<double>> dhParams{
      {770, boost::math::constants::pi<double>()/2, 750, 0},
@@ -55,13 +56,6 @@ class Robot {
    *  @return	Vector of Point objects depicting Robot's joint positions
    */
    std::vector<Point> computeFk(std::vector<double>);
-  /**
-   *  @brief    Compute the Jacobian
-   *  @param	Object of Class RobotPosition 
-   *  @param	A vector of 2D transformation matrices
-   *  @return	Pseudo-inverse of the Jacobian matrix
-   */
-   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition);
 
  public:
   /**
@@ -72,11 +66,19 @@ class Robot {
    explicit Robot(const Point& startingPos);
 
   /**
+   *  @brief    Compute the Jacobian
+   *  @param	Object of Class RobotPosition 
+   *  @param	A vector of 2D transformation matrices
+   *  @return	Pseudo-inverse of the Jacobian matrix
+   */
+   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition);
+
+  /**
    *  @brief    Computing the inverse kinematics for Robot's generated path
    *  @param	Vector of Robot's path
    *  @return	Vector of RobotPosition object containing Points of joint positions
    */
-   std::vector<RobotPosition> computeIK(PathPlanner);
+   std::vector<RobotPosition> computeIK(Point targetPoint);
 
   /**
    *  @brief    Computes cross product of the two input vectors
@@ -86,13 +88,13 @@ class Robot {
    */
    boost::numeric::ublas::vector<double> crossProduct(boost::numeric::ublas::vector<double> vector1, boost::numeric::ublas::vector<double> vector2);
 
-
   /**
    *  @brief    Computes the Moore-Penrose pseudoinverse
    *  @param	Input matrix to find the pseudoinverse of
    *  @return	Pseudoinverse matrix result
    */
    boost::numeric::ublas::matrix<double> penroseInverseMatrix(boost::numeric::ublas::matrix<double> mat);
+
 };
 
 
