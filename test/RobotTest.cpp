@@ -35,10 +35,10 @@ TEST(RobotTest, PenroseInverseMatrix) {
   ASSERT_EQ(2, result.size1());  
   ASSERT_EQ(2, result.size2());
 
-  EXPECT_EQ(-2.0, result(0, 0));
-  EXPECT_EQ(1.0, result(0, 1));
-  EXPECT_EQ(1.0, result(1, 0));
-  EXPECT_EQ(0.0, result(1, 1));
-  
+
+  EXPECT_NEAR(-2.0, result(0, 0), 0.01);
+  EXPECT_NEAR(1.0, result(0, 1), 0.01);
+  EXPECT_NEAR(1.0, result(1, 0), 0.01);
+  EXPECT_NEAR(0.0, result(1, 1), 0.01);  
 }
 

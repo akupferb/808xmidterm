@@ -5,9 +5,9 @@
  */
 /**
  *  @file       Robot.cpp
- *  @author     Lydia Zoghbi, Ari Kupferberg
+ *  @author     Lydia Zoghbi, Ari Kupferberg, Ryan Bates
  *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/16/2019
+ *  @date       10/19/2019
  *  @version    1.0
  *
  *  @brief      Definitions for Robot.hpp to be completed
@@ -17,10 +17,16 @@
 #include <cmath>
 #include <vector>
 #include <boost/numeric/ublas/matrix.hpp>
+
+#include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/SVD>
 #include "Robot.hpp"
 #include <RobotPosition.hpp>
 #include <RobotPath.hpp>
 #include <Point.hpp>
+#include <iostream>
+#include <math.h>
 
 
 Robot::Robot(const Point& startingPos): initialEEPosition(startingPos) {
@@ -135,8 +141,68 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
   return jacobian;
 }
 
+
+
+
+// https://gist.github.com/javidcf/25066cf85e71105d57b6 used as reference
+// We may want to add some error and bounds checking here
 boost::numeric::ublas::matrix<double> Robot::penroseInverseMatrix(boost::numeric::ublas::matrix<double> mat) {
-  boost::numeric::ublas::matrix<double> result(3, 3);
+  boost::numeric::ublas::matrix<double> result(mat.size1(), mat.size2());
+
+  Eigen::MatrixXd convertedInput(mat.size1(), mat.size2());
+
+  // Convert from boost matrix to eigen matrix
+  // we permit ourselves to use int for loops 
+  // because the indexing is useful for referencing between datatypes
+
+  for (unsigned int rowIndex = 0; rowIndex < mat.size1(); rowIndex++) {
+    for (unsigned int columnIndex = 0; columnIndex < mat.size2(); columnIndex++) {
+      convertedInput(rowIndex, columnIndex) = mat(rowIndex, columnIndex);
+    }
+  }
+
+
+  // Now for the actual math
+
+  Eigen::JacobiSVD<Eigen::MatrixXd> svd(convertedInput, Eigen::ComputeFullU | Eigen::ComputeFullV);
+
+  // we can safely use adjoint instead of transpose because this is a real matrix
+  Eigen::MatrixXd sigma = svd.singularValues().asDiagonal();
+
+  double tolerance = 0.001;
+  // take the reciprocal of each element, if possible, 
+  // as per https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse
+  // we only hit the diagonal, since this is a diagonal matrix.
+  // We allow this loop type because the indexing is useful.
+  for (int i = 0; i < sigma.rows(); i++) {
+    if (fabs(sigma(i, i)) < tolerance) {
+      sigma(i, i) = 0;
+    } else {
+      sigma(i, i) = 1 / sigma(i, i);
+    }
+  }
+
+  Eigen::MatrixXd sigmaTransposed = sigma.transpose();
+  Eigen::MatrixXd eigenResult = svd.matrixV() * sigmaTransposed * svd.matrixU().adjoint();
+
+
+
+  // Convert eigen matrix to boost matrix
+  // we permit ourselves to use int for loops 
+  // because the indexing is useful for referencing between datatypes
+
+  
+  
+  for (unsigned int rowIndex = 0; rowIndex < mat.size1(); rowIndex++) {
+    for (unsigned int columnIndex = 0; columnIndex < mat.size2(); columnIndex++) {
+      result(rowIndex, columnIndex) = static_cast<double>(eigenResult(rowIndex, columnIndex));
+      // Legacy for debugging purposes
+      // std::cout << rowIndex << ", " << columnIndex << " is " << result(rowIndex, columnIndex) << std::endl;
+    }
+  }
+  
+
+
   return result;
 }
 
