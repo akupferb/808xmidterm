@@ -45,17 +45,26 @@ boost::numeric::ublas::matrix<double> Robot::computeATransform(std::vector<doubl
      sin(theta)*sin(alpha), a*cos(theta), sin(theta), cos(theta)*cos(alpha),
      -cos(theta)*sin(alpha), a*sin(theta), 0, sin(alpha), cos(alpha), d, 0, 
      0, 0, 1};
+
+   //aTransform(0,0) = aTerms[0]; aTransform(0,1) = aTerms[1]; aTransform(0,2) = aTerms[2]; 
+   //aTransform(0,3) = aTerms[3]; aTransform(1,0) = aTerms[4]; aTransform(1,1) = aTerms[5];
+   //aTransform(1,2) = aTerms[6]; aTransform(1,3) = aTerms[7]; aTransform(2,0) = aTerms[8];
+   //aTransform(2,1) = aTerms[9]; aTransform(2,2) = aTerms[10]; aTransform(2,3) = aTerms[11];
+   //aTransform(3,0) = aTerms[12]; aTransform(3,1) = aTerms[13]; aTransform(3,2) = aTerms[14];
+   //aTransform(3,3) = aTerms[15];
   
-  int i,j = 0;
-  for (auto& term : aTerms) {
-    aTransform (i, j) = term;
+  int i = 0;
+  int j = 0;
+
+  for (auto& term: aTerms) {
+    aTransform(i, j) = term;
     j++;
-    if (j == 6) {
+    if (j == 4) {
       i++;
       j = 0;
     }
   }
-
+  
   return aTransform;
 }
 
@@ -63,7 +72,7 @@ boost::numeric::ublas::matrix<double> Robot::computeATransform(std::vector<doubl
 std::vector<Point> Robot::computeFk(std::vector<double> jointAngles) {
   int i = 0;
   for (auto& element : jointAngles) {
-    dhParams[6][i] = element;
+    dhParams[5][i] = element;
     i++;
   }
   

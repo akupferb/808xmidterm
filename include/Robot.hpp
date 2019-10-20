@@ -36,34 +36,35 @@ class Robot {
    Point initialEEPosition;
    std::vector<double> initialJointAngles = {0, 0, 0, 0, 0, 0};
    std::vector<RobotPath> path;
-   std::vector<std::vector<double>> dhParams{
-     {770, boost::math::constants::pi<double>()/2, 750, 0},
-     {1050, 0, 0, 0},{200, boost::math::constants::pi<double>()/2, 0, 0},
-     {0, -1 * boost::math::constants::pi<double>()/2, 1705, 0},{0, boost::math::constants::pi<double>()/2, 0, 0},
+    std::vector<std::vector<double>> dhParams{
+     {770, M_PI/2.0, 750, 0},
+     {1050, 0, 0, 0},{200, M_PI/2.0, 0, 0},
+     {0, -M_PI/2.0, 1705, 0},{0, boost::math::constants::pi<double>()/2, 0, 0},
      {0, 0, 325, 0}};
-
    std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
-   
-  /**
-   *  @brief     Compute the intermediate transformation between two DH frames
-   *  @param	 DH Table as matrix double
-   *  @return	'A' transformation matrix
-   */
-   boost::numeric::ublas::matrix<double> computeATransform(std::vector<double>);
-  /**
-   *  @brief    Computing the forward kinematics for the Robot
-   *  @param	Vector of Robot's joint angles as double
-   *  @return	Vector of Point objects depicting Robot's joint positions
-   */
-   std::vector<Point> computeFk(std::vector<double>);
 
  public:
+
   /**
    *  @brief    Constructor for class Robot 
    *  @param	Point of the robot's end effector position
    *  @return	Instance of robot
    */
    explicit Robot(const Point& startingPos);
+
+  /**
+   *  @brief     Compute the intermediate transformation between two DH frames
+   *  @param	 DH Table as matrix double
+   *  @return	'A' transformation matrix
+   */
+   boost::numeric::ublas::matrix<double> computeATransform(std::vector<double>);
+
+  /**
+   *  @brief    Computing the forward kinematics for the Robot
+   *  @param	Vector of Robot's joint angles as double
+   *  @return	Vector of Point objects depicting Robot's joint positions
+   */
+   std::vector<Point> computeFk(std::vector<double>);
 
   /**
    *  @brief    Compute the Jacobian
