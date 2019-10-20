@@ -83,5 +83,19 @@ TEST(RobotTest, ComputeFK) {
   EXPECT_NEAR(-1280, zEEPoint, 5);  
 }
 
+TEST(RobotTest, FindCrossProduct) {
+  boost::numeric::ublas::vector<double> vector1(3);
+  vector1(0) = 1.2; vector1(1) = 4.5; vector1(2) = 6.8;
+  boost::numeric::ublas::vector<double> vector2(3);
+  vector2(0) = 14.6; vector2(1) = 18.5; vector2(2) = 12.8;
+
+  Point dummyPoint(0.0, 0.0, 0.0);
+  Robot robot(dummyPoint);
+  boost::numeric::ublas::vector<double> crossProd = robot.crossProduct(vector1, vector2);
+
+  EXPECT_NEAR(-68.2, crossProd(0), 0.01); 
+  EXPECT_NEAR(83.92, crossProd(1), 0.01); 
+  EXPECT_NEAR(-43.5, crossProd(2), 0.01);   
+}
 
 

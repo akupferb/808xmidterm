@@ -43,7 +43,7 @@ class Robot {
      {0, -M_PI/2.0, 1705, 0}, 
      {0, M_PI/2.0, 0, 0},
      {0, 0, 325, 0}};
-  std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
+  //std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
 
  public:
 
@@ -74,14 +74,14 @@ class Robot {
    *  @param	A vector of 2D transformation matrices
    *  @return	Pseudo-inverse of the Jacobian matrix
    */
-   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition);
+   boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition robotPosition, std::vector<boost::numeric::ublas::matrix<double>> tTransforms);
 
   /**
    *  @brief    Computing the inverse kinematics for Robot's generated path
    *  @param	Vector of Robot's path
    *  @return	Vector of RobotPosition object containing Points of joint positions
    */
-   std::vector<RobotPosition> computeIK(Point targetPoint);
+   std::vector<RobotPosition> computeIK(Point targetPoint, std::vector<boost::numeric::ublas::matrix<double>> tTransforms);
 
   /**
    *  @brief    Computes cross product of the two input vectors

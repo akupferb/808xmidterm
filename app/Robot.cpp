@@ -105,7 +105,7 @@ boost::numeric::ublas::vector<double> Robot::crossProduct(boost::numeric::ublas:
 }
 
 
-boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robotPosition) {
+boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robotPosition, std::vector<boost::numeric::ublas::matrix<double>> tTransforms) {
 
   // Get all the joint positions in Point
   std::vector<Point> joints = robotPosition.getJoints(); 
@@ -128,7 +128,7 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
 	differenceVector(1) = differenceInY;
 	differenceVector(2) = differenceInZ;
 
-    boost::numeric::ublas::vector<double> transformedZAxes = prod(tTransformations[index],zAxes);
+    boost::numeric::ublas::vector<double> transformedZAxes = prod(tTransforms[index],zAxes);
     
     boost::numeric::ublas::vector<double> crossProductVector = crossProduct(transformedZAxes, differenceVector); 
     
@@ -207,7 +207,7 @@ boost::numeric::ublas::matrix<double> Robot::penroseInverseMatrix(boost::numeric
   return result;
 }
 
-std::vector<RobotPosition> Robot::computeIK(Point targetPoint) {
+std::vector<RobotPosition> Robot::computeIK(Point targetPoint, std::vector<boost::numeric::ublas::matrix<double>> tTransforms) {
 
 	std::vector<RobotPosition> allRobotPositions;
     boost::numeric::ublas::vector<double> velocity(3);
@@ -242,7 +242,7 @@ std::vector<RobotPosition> Robot::computeIK(Point targetPoint) {
     		RobotPosition robotPosition(robotJointPosition, jointAngles);
 			allRobotPositions.push_back(robotPosition);
 
-			boost::numeric::ublas::matrix<double> jacobian = computeJacobian(robotPosition);
+			boost::numeric::ublas::matrix<double> jacobian = computeJacobian(robotPosition, tTransforms);
 			boost::numeric::ublas::matrix<double> pseudoInverse = penroseInverseMatrix(jacobian);
 			Point eePosition = robotJointPosition.back();
 

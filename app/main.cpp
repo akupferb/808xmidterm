@@ -44,22 +44,22 @@ int main() {
     Point destinationPoint(xInput, yInput, zInput);
 
 
-    std::vector<RobotPosition> positionSequence = robot.computeIK(destinationPoint);
+    //std::vector<RobotPosition> positionSequence = robot.computeIK(destinationPoint);
 
-    if (positionSequence.size() > 0) {
-        std::cout << "Path found:" << std::endl;
-        for (auto robotPosition : positionSequence) {
-          for (auto angleValue : robotPosition.getAngles()) {
-            std::cout << angleValue << "	";
-          }
-          for (auto point : robotPosition.getJoints()) {
-            std::cout << point.getX() << ", " << point.getY() << "	";
-          }
-        }
-        break;
-    } else {
-      std::cout << "Destination point unreachable.  Please input a new destination." << std::endl;
-    }
+  //  if (positionSequence.size() > 0) {
+    //    std::cout << "Path found:" << std::endl;
+      //  for (auto robotPosition : positionSequence) {
+        //  for (auto angleValue : robotPosition.getAngles()) {
+          //  std::cout << angleValue << "	";
+          //}
+          //for (auto point : robotPosition.getJoints()) {
+           // std::cout << point.getX() << ", " << point.getY() << "	";
+          //}
+       // }
+        //break;
+    //} else {
+      //std::cout << "Destination point unreachable.  Please input a new destination." << std::endl;
+    //}
   }
   return 0;
 }
