@@ -104,6 +104,32 @@ boost::numeric::ublas::vector<double> Robot::crossProduct(boost::numeric::ublas:
   return resultVector;
 }
 
+std::vector<boost::numeric::ublas::matrix<double>> Robot::computeTransformationMatrices(std::vector<double> jointAngles) {
+
+ int i = 0;
+  for (auto& element : jointAngles) {
+    dhParams[i][3] = element + dhParams[i][3];
+    i++;
+  }
+  
+  // Initialize Matrices
+  boost::numeric::ublas::matrix<double> aTransform (4, 4);  
+  boost::numeric::ublas::matrix<double> tTransform (4, 4);
+  boost::numeric::ublas::matrix<double> previousTransform (4, 4);
+  boost::numeric::ublas::identity_matrix<double> identity (4, 4);
+  previousTransform = identity;
+  
+  // Loop through A matrices to get T matrices
+  std::vector<boost::numeric::ublas::matrix<double>> tTransforms;
+  for (auto& row : dhParams) {
+     aTransform = computeATransform(row);
+	 tTransform = prod(previousTransform, aTransform);
+	 previousTransform = tTransform;
+	 tTransforms.push_back(tTransform);
+  };
+
+ return tTransforms;
+}
 
 boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robotPosition, std::vector<boost::numeric::ublas::matrix<double>> tTransforms) {
 

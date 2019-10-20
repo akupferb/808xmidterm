@@ -98,4 +98,46 @@ TEST(RobotTest, FindCrossProduct) {
   EXPECT_NEAR(-43.5, crossProd(2), 0.01);   
 }
 
+TEST(RobotTest, FindJacobian) {
+  boost::numeric::ublas::vector<double> vector1(3);
+  vector1(0) = 1.2; vector1(1) = 4.5; vector1(2) = 6.8;
+  boost::numeric::ublas::vector<double> vector2(3);
+  vector2(0) = 14.6; vector2(1) = 18.5; vector2(2) = 12.8;
+
+  Point dummyPoint(0.0, 0.0, 0.0);
+  Robot robot(dummyPoint);
+  boost::numeric::ublas::vector<double> crossProd = robot.crossProduct(vector1, vector2);
+
+  EXPECT_NEAR(-68.2, crossProd(0), 0.01); 
+  EXPECT_NEAR(83.92, crossProd(1), 0.01); 
+  EXPECT_NEAR(-43.5, crossProd(2), 0.01);   
+}
+
+TEST(RobotTest, GetTranformationMatrices) {
+  std::vector<double> angles = {0.0, M_PI, 0.0, M_PI/4.0, 0.0, 0.0};
+  Point dummyPoint(0.0, 0.0, 0.0);
+  Robot robot(dummyPoint);
+  std::vector<boost::numeric::ublas::matrix<double>> transforms = robot.computeTransformationMatrices(angles);
+  boost::numeric::ublas::matrix<double> transform1 = transforms[2];
+  boost::numeric::ublas::matrix<double> transform2 = transforms[3];
+  boost::numeric::ublas::matrix<double> transform3 = transforms [5];
+  
+  double value1 = transform1(0,3);
+  double value2 = transform2(2,3);
+  double value3 = transform3(3,0);
+  double value4 = transform3(3,1);
+  double value5 = transform3(3,2);
+  double value6 = transform3(3,3);
+  double value7 = transform3(2,2);
+
+  EXPECT_NEAR(-480, value1, 5);
+  EXPECT_NEAR(2455, value2, 5);
+  EXPECT_NEAR(1, value7, 5);
+  ASSERT_EQ(0, value3);
+  ASSERT_EQ(0, value4);
+  ASSERT_EQ(0, value5);
+  ASSERT_EQ(1, value6);
+
+}
+
 

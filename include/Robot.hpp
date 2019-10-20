@@ -74,6 +74,14 @@ class Robot {
    *  @param	A vector of 2D transformation matrices
    *  @return	Pseudo-inverse of the Jacobian matrix
    */
+
+  /**
+   *  @brief    Computing the inverse kinematics for Robot's generated path
+   *  @param	Vector of Robot's path
+   *  @return	Vector of RobotPosition object containing Points of joint positions
+   */
+   std::vector<boost::numeric::ublas::matrix<double>> computeTransformationMatrices(std::vector<double> jointAngles);
+
    boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition robotPosition, std::vector<boost::numeric::ublas::matrix<double>> tTransforms);
 
   /**

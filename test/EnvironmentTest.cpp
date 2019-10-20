@@ -36,14 +36,14 @@ TEST(Environment, Constructor) {
    double radius1 = retrievedObstacle1.getRadius();
    double radius2 = retrievedObstacle2.getRadius();
 
-   EXPECT_EQ(0.1, point1.getX());
-   EXPECT_EQ(0.2, point1.getY());
-   EXPECT_EQ(0.3, point1.getZ());
+   EXPECT_EQ(0.1, centroid1.getX());
+   EXPECT_EQ(0.2, centroid1.getY());
+   EXPECT_EQ(0.3, centroid1.getZ());
    EXPECT_EQ(0.5, radius1);
 
-   EXPECT_EQ(0.5, point2.getX());
-   EXPECT_EQ(0.6, point2.getY());
-   EXPECT_EQ(0.7, point2.getZ());
+   EXPECT_EQ(0.5, centroid2.getX());
+   EXPECT_EQ(0.6, centroid2.getY());
+   EXPECT_EQ(0.7, centroid2.getZ());
    EXPECT_EQ(1.0, radius2);
 }
 
