@@ -14,12 +14,52 @@
  *
  */
 #include <iostream>
-#include <Eigen/QR>
-
-using std::cout;
-using std::endl;
+//#include <Eigen/QR>
+#include <Robot.hpp>
+//using std::cout;
+//using std::endl;
 
 int main() {
-  cout << "Fill me Up!" << endl;
+  
+  std::cout << "Running ARL Path Planner" << std::endl;
+  double xInput = 0;
+  double yInput = 0;
+  double zInput = 0;
+  std::cout << "Input starting X position: ";
+  std::cin >> xInput;
+  std::cout << "Input starting Y position: ";
+  std::cin >> yInput;
+  std::cout << "Input starting Z position: ";
+  std::cin >> zInput;
+  Point robotStartPoint(xInput, yInput, zInput);
+  Robot robot(robotStartPoint);
+
+  while (true) {
+    std::cout << "Input destination X position: ";
+    std::cin >> xInput;
+    std::cout << "Input destination Y position: ";
+    std::cin >> yInput;
+    std::cout << "Input destination Z position: ";
+    std::cin >> zInput;
+    Point destinationPoint(xInput, yInput, zInput);
+
+
+    std::vector<RobotPosition> positionSequence = robot.computeIK(destinationPoint);
+
+    if (positionSequence.size() > 0) {
+        std::cout << "Path found:" << std::endl;
+        for (auto robotPosition : positionSequence) {
+          for (auto angleValue : robotPosition.getAngles()) {
+            std::cout << angleValue << "	";
+          }
+          for (auto point : robotPosition.getJoints()) {
+            std::cout << point.getX() << ", " << point.getY() << "	";
+          }
+        }
+        break;
+    } else {
+      std::cout << "Destination point unreachable.  Please input a new destination." << std::endl;
+    }
+  }
   return 0;
 }
