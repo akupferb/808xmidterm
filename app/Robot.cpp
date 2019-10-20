@@ -45,13 +45,6 @@ boost::numeric::ublas::matrix<double> Robot::computeATransform(std::vector<doubl
      sin(theta)*sin(alpha), a*cos(theta), sin(theta), cos(theta)*cos(alpha),
      -cos(theta)*sin(alpha), a*sin(theta), 0, sin(alpha), cos(alpha), d, 0, 
      0, 0, 1};
-
-   //aTransform(0,0) = aTerms[0]; aTransform(0,1) = aTerms[1]; aTransform(0,2) = aTerms[2]; 
-   //aTransform(0,3) = aTerms[3]; aTransform(1,0) = aTerms[4]; aTransform(1,1) = aTerms[5];
-   //aTransform(1,2) = aTerms[6]; aTransform(1,3) = aTerms[7]; aTransform(2,0) = aTerms[8];
-   //aTransform(2,1) = aTerms[9]; aTransform(2,2) = aTerms[10]; aTransform(2,3) = aTerms[11];
-   //aTransform(3,0) = aTerms[12]; aTransform(3,1) = aTerms[13]; aTransform(3,2) = aTerms[14];
-   //aTransform(3,3) = aTerms[15];
   
   int i = 0;
   int j = 0;
@@ -72,28 +65,31 @@ boost::numeric::ublas::matrix<double> Robot::computeATransform(std::vector<doubl
 std::vector<Point> Robot::computeFk(std::vector<double> jointAngles) {
   int i = 0;
   for (auto& element : jointAngles) {
-    dhParams[5][i] = element;
+    dhParams[i][3] = element + dhParams[i][3];
     i++;
   }
   
   // Initialize Matrices
-  boost::numeric::ublas::matrix<double> aTransform (4, 4),  tTransform (4, 4), previousTransform (4, 4);
+  boost::numeric::ublas::matrix<double> aTransform (4, 4);  
+  boost::numeric::ublas::matrix<double> tTransform (4, 4);
+  boost::numeric::ublas::matrix<double> previousTransform (4, 4);
   boost::numeric::ublas::identity_matrix<double> identity (4, 4);
   previousTransform = identity;
   
   // Loop through A matrices to get T matrices
   std::vector<boost::numeric::ublas::matrix<double>> tTransforms;
   for (auto& row : dhParams) {
-    aTransform = computeATransform(row);
+     aTransform = computeATransform(row);
 	 tTransform = prod(previousTransform, aTransform);
 	 previousTransform = tTransform;
 	 tTransforms.push_back(tTransform);
   }
 
   // Pull points from T matrices:
-  std::vector<Point> points;
-  for (auto& p : tTransformations) {
-    Point point(p (0, 3), p (1, 3), p (2, 3));
+  Point initialPoint(0.0, 0.0, 0.0);
+  std::vector<Point> points = {initialPoint};
+  for (auto& p : tTransforms) {
+    Point point(p(0, 3), p(1, 3), p(2, 3));
 	 points.push_back(point);
   }
   return points;	

@@ -64,7 +64,7 @@ TEST(RobotTest, ComputeFK) {
   Robot robot(dummyPoint);
   std::vector<Point> jointPositions = robot.computeFk(jointAngles);
   
-  Point firstPoint = jointPositions[0];
+  Point firstPoint = jointPositions[2];
   Point eePosition = jointPositions.back();
   
   double xFirstPoint = firstPoint.getX(); 
@@ -75,11 +75,13 @@ TEST(RobotTest, ComputeFK) {
   double zEEPoint = eePosition.getZ();
 
 
-  EXPECT_NEAR(1.00, xFirstPoint, 0.01);
+  EXPECT_NEAR(1820, xFirstPoint, 0.01);
   EXPECT_NEAR(0.00, yFirstPoint, 0.01);
-  EXPECT_NEAR(-1.00, zFirstPoint, 0.01);
-  EXPECT_NEAR(1.00, xEEPoint, 0.01); 
-  EXPECT_NEAR(1.00, yEEPoint, 0.01); 
-  EXPECT_NEAR(1.00, zEEPoint, 0.01);  
+  EXPECT_NEAR(750, zFirstPoint, 0.01);
+  EXPECT_NEAR(2020, xEEPoint, 5); 
+  EXPECT_NEAR(0.0, yEEPoint, 5); 
+  EXPECT_NEAR(-1280, zEEPoint, 5);  
 }
+
+
 

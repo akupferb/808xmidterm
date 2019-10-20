@@ -38,10 +38,12 @@ class Robot {
    std::vector<RobotPath> path;
     std::vector<std::vector<double>> dhParams{
      {770, M_PI/2.0, 750, 0},
-     {1050, 0, 0, 0},{200, M_PI/2.0, 0, 0},
-     {0, -M_PI/2.0, 1705, 0},{0, boost::math::constants::pi<double>()/2, 0, 0},
+     {1050, 0, 0, 0},
+     {200, M_PI/2.0, 0, 0},
+     {0, -M_PI/2.0, 1705, 0}, 
+     {0, M_PI/2.0, 0, 0},
      {0, 0, 325, 0}};
-   std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
+  std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
 
  public:
 
