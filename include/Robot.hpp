@@ -1,12 +1,11 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 2.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       Robot.hpp
  *  @author     Lydia Zoghbi, Ari Kupferberg
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019
  *  @date       10/15/2019
  *  @version    2.0
  *
@@ -40,10 +39,9 @@ class Robot {
      {770, M_PI/2.0, 750, 0},
      {1050, 0, 0, 0},
      {200, M_PI/2.0, 0, 0},
-     {0, -M_PI/2.0, 1705, 0}, 
+     {0, -M_PI/2.0, 1705, 0},
      {0, M_PI/2.0, 0, 0},
      {0, 0, 325, 0}};
-  //std::vector<boost::numeric::ublas::matrix<double>> tTransformations;
 
  public:
 
@@ -59,37 +57,37 @@ class Robot {
    *  @param	 DH Table as matrix double
    *  @return	'A' transformation matrix
    */
-   boost::numeric::ublas::matrix<double> computeATransform(std::vector<double>);
+   boost::numeric::ublas::matrix<double> computeATransform(std::vector<double> dhRow);
 
   /**
    *  @brief    Computing the forward kinematics for the Robot
    *  @param	Vector of Robot's joint angles as double
    *  @return	Vector of Point objects depicting Robot's joint positions
    */
-   std::vector<Point> computeFk(std::vector<double>);
+   std::vector<Point> computeFk(std::vector<double> jointAngles);
 
   /**
-   *  @brief    Compute the Jacobian
-   *  @param	Object of Class RobotPosition 
-   *  @param	A vector of 2D transformation matrices
-   *  @return	Pseudo-inverse of the Jacobian matrix
-   */
-
-  /**
-   *  @brief    Computing the inverse kinematics for Robot's generated path
-   *  @param	Vector of Robot's path
-   *  @return	Vector of RobotPosition object containing Points of joint positions
+   *  @brief    Computing a set of transformation matrices
+   *  @param	Vector of Robot's joint angles
+   *  @return	Vector of matrices representing the transformation from each joint frame to the base frame
    */
    std::vector<boost::numeric::ublas::matrix<double>> computeTransformationMatrices(std::vector<double> jointAngles);
 
+  /**
+   *  @brief    Computing the geometric Jacobian matrix
+   *  @param	Robot's current position for performing a cross product
+   *  @param    Vector of transformation matrices
+   *  @return	The Jacobian matrix
+   */
    boost::numeric::ublas::matrix<double> computeJacobian(RobotPosition robotPosition, std::vector<boost::numeric::ublas::matrix<double>> tTransforms);
 
   /**
    *  @brief    Computing the inverse kinematics for Robot's generated path
-   *  @param	Vector of Robot's path
+   *  @param	The end effector's target position
+   *  @param    The environment to check for collisions
    *  @return	Vector of RobotPosition object containing Points of joint positions
    */
-   std::vector<RobotPosition> computeIK(Point targetPoint);
+   std::vector<RobotPosition> computeIK(Point targetPoint, Environment environment);
 
   /**
    *  @brief    Computes cross product of the two input vectors
@@ -107,6 +105,5 @@ class Robot {
    boost::numeric::ublas::matrix<double> penroseInverseMatrix(boost::numeric::ublas::matrix<double> mat);
 
 };
-
 
 #endif // INCLUDE_ROBOT_HPP_
