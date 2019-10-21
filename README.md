@@ -50,17 +50,15 @@ including development of an autonomous robotic ultrasound system at MRE.
 When not busy with her studies or research, she enjoys spending time with her boyfriend, cat, and tasty ice cream.
 
 ## To Do
-* Create unit tests for Robot Class methods
-* Complete Inverse Kinematics
-* Create Obstacle Space
-* Create collision checker functionality
+--
 
 ## Operation
 
 The main application first sequentially requests the 3D coordinates 
 for the initial end effector position of the robot, 
-then the coordinates of the desired end effector destination.  
-If the point is unreachable, the user will be prompted to input different end effector coordinates.
+then the coordinates of the desired end effector destination,
+and optionally any number of spherical obstacles of any size.  
+If the point is unreachable, the user will be prompted to input different end effector coordinates or obstacles.
 
 ## Dependencies/Libraries
 
@@ -85,12 +83,12 @@ Run program: ./app/shell-app
 ## Test
 
 Run test/cpp-test to run the gtest unit tests.
-Run systemTest.sh to run the full system test.
+Run system_test_demo.sh per instructions below to run the full system test.
 
 ## Demo
 
 Our system test acts as our demo, running the full kinematic and path planning chain.  
-It is demonstrable through running systemTest.sh
+It is demonstrable through running system_test_demo.sh (may need to make it runnable via chmod +x system_test_demo.sh)
 
 ## Notes
 
