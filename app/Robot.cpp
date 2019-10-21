@@ -127,7 +127,6 @@ std::vector<boost::numeric::ublas::matrix<double>> Robot::computeTransformationM
 	 previousTransform = tTransform;
 	 tTransforms.push_back(tTransform);
   };
-
  return tTransforms;
 }
 
@@ -141,10 +140,12 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
   zAxes(2) = 1;
 
   boost::numeric::ublas::matrix<double> jacobian (6,6); 
+  std::vector<double> iterator = {0, 1, 2}; 
 
   int index = 0;
+  Point robotEEPosition = joints[6];
+  joints.pop_back();
   for( auto& joint : joints) {
-    Point robotEEPosition = joints[6];
     Point robotJointPosition = joint;
     double differenceInX = robotEEPosition.getX() - robotJointPosition.getX();
     double differenceInY = robotEEPosition.getY() - robotJointPosition.getY();
@@ -154,21 +155,29 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
 	differenceVector(1) = differenceInY;
 	differenceVector(2) = differenceInZ;
 
-    boost::numeric::ublas::vector<double> transformedZAxes = prod(tTransforms[index],zAxes);
-    
+    boost::numeric::ublas::matrix<double> trans (3,3);
+    trans(0,0) = tTransforms[index](0,0); trans(0,1) = tTransforms[index](0,1); 
+    trans(0,2) = tTransforms[index](0,2); trans(1,0) = tTransforms[index](1,0);
+    trans(1,1) = tTransforms[index](1,1); trans(1,2) = tTransforms[index](1,2);
+    trans(2,0) = tTransforms[index](2,0); trans(2,1) = tTransforms[index](2,1); 
+    trans(2,2) = tTransforms[index](2,2);
+    boost::numeric::ublas::vector<double> transformedZAxes = prod(trans,zAxes);
     boost::numeric::ublas::vector<double> crossProductVector = crossProduct(transformedZAxes, differenceVector); 
-    
-     
-	// Populate the Jacobian's columns iteratively
-    std::vector<double> iterator = {0, 1, 2};  
+//    std::cout<<trans(0,0)<<"   "<<trans(0,1)<<"     "<<trans(0,2)<<std::endl;
+//    std::cout<<trans(1,0)<<"   "<<trans(1,1)<<"     "<<trans(1,2)<<std::endl;
+//    std::cout<<trans(2,0)<<"   "<<trans(2,1)<<"     "<<trans(2,2)<<std::endl<<std::endl;
+
+    std::cout<<transformedZAxes(0)<<"    ";
+    std::cout<<transformedZAxes(1)<<"    ";
+    std::cout<<transformedZAxes(2)<<"    "<<std::endl;
+
+	// Populate the Jacobian's columns iteratively 
     for (auto& element : iterator){
 		jacobian(element, index) = crossProductVector(element);
-		jacobian(element, index+3) = transformedZAxes(element);
-	};
-
-    index++;
-    
-  };
+		jacobian(element+3, index) = transformedZAxes(element);
+	}
+    index++; 
+  }
   return jacobian;
 }
 

@@ -140,4 +140,25 @@ TEST(RobotTest, GetTranformationMatrices) {
 
 }
 
+TEST(RobotTest, FindingJacobian) {
+  std::vector<double> jointAngles = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+  Point dummyPoint(0.0, 0.0, 0.0);
+  Robot robot(dummyPoint);
+  std::vector<Point> jointPositions = robot.computeFk(jointAngles);
+
+  RobotPosition robotPos(jointPositions, jointAngles);
+  std::vector<boost::numeric::ublas::matrix<double>> transforms = robot.computeTransformationMatrices(jointAngles);
+  boost::numeric::ublas::matrix<double> jacobian = robot.computeJacobian(robotPos, transforms);
+
+  ASSERT_EQ(6, jacobian.size1());  
+  ASSERT_EQ(6, jacobian.size2());
+
+  EXPECT_NEAR(0.0, jacobian(0,0), 5);
+  EXPECT_NEAR(1250, jacobian(2,1), 5);
+  EXPECT_NEAR(0, jacobian(3,4), 5);
+  EXPECT_NEAR(0, jacobian(4,1), 5);
+  EXPECT_NEAR(-1, jacobian(4,2), 5);
+  EXPECT_NEAR(-1, jacobian(5,5), 5);
+
+}
 
