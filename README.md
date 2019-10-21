@@ -103,8 +103,7 @@ This current iteration acts as
 
 ## Doxygen/Documention
 
-Run 'doxygen doxygen_config', then check the html or latex directory for documentation.
-TODO: in docs directory
+cd docs, then run 'doxygen Doxyfile', then check the html or latex directory for documentation.
 
 ## Backlog/Worklog
 
