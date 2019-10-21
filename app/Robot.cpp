@@ -282,7 +282,7 @@ std::vector<RobotPosition> Robot::computeIK(Point targetPoint, Environment envir
 		RobotPosition robotPosition(robotJointPosition, jointAngles);
 
 		// Check for any collision
-		if (robotPosition.checkCollision(environment) == false) {
+		if (robotPosition.checkCollision(environment)) {
 			allRobotPositions.push_back(robotPosition);
 		} else {break;}
 	}

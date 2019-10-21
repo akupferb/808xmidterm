@@ -168,7 +168,7 @@ TEST(RobotTest, FindingJacobian) {
 
 }
 
-TEST(RobotTest, ComputingIK) {
+TEST(RobotTest, ComputingIK_Blocked) {
   Point targetPoint(2050.0, 30.0, -1200.0);
   Point dummyPoint(0.0, 0.0, 0.0);
   Robot robot(dummyPoint);
@@ -185,6 +185,32 @@ TEST(RobotTest, ComputingIK) {
   Environment dummyEnvironment(allObstacles);
 
   std::vector<RobotPosition> fullPositions = robot.computeIK(targetPoint, dummyEnvironment);
+
+  unsigned int expectedSize = 0;
+  EXPECT_EQ(expectedSize, fullPositions.size());
+}
+
+TEST(RobotTest, ComputingIK_Clear) {
+  Point targetPoint(2050.0, 30.0, -1200.0);
+  Point dummyPoint(0.0, 0.0, 0.0);
+  Robot robot(dummyPoint);
+
+  Point point1(100000.1, 0.2, 0.3);
+  Point point2(100000.5, 0.6, 0.7);
+  Obstacle obstacle1(point1, 0.5);
+  Obstacle obstacle2(point2, 1.0);
+
+  std::vector<Obstacle> allObstacles;;
+  allObstacles.push_back(obstacle1);
+  allObstacles.push_back(obstacle2);
+
+  Environment dummyEnvironment(allObstacles);
+
+  std::vector<RobotPosition> fullPositions = robot.computeIK(targetPoint, dummyEnvironment);
+
+  
+  ASSERT_TRUE(fullPositions.size() > 0);
+
   RobotPosition lastPosition = fullPositions.back();
 
   std::vector<Point> computedJoints = lastPosition.getJoints();
