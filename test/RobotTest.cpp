@@ -162,3 +162,22 @@ TEST(RobotTest, FindingJacobian) {
 
 }
 
+TEST(RobotTest, ComputingIK) {
+  Point targetPoint(2050.0, 30.0, -1200.0);
+  Point dummyPoint(0.0, 0.0, 0.0);
+  Robot robot(dummyPoint);
+  std::vector<RobotPosition> fullPositions = robot.computeIK(targetPoint);
+  RobotPosition lastPosition = fullPositions.back();
+
+  std::vector<Point> computedJoints = lastPosition.getJoints();
+  Point endEffector = computedJoints.back(); 
+  double xReached = endEffector.getX();
+  double yReached = endEffector.getY();
+  double zReached = endEffector.getZ();
+
+  EXPECT_NEAR(2050.0, xReached, 0.1);
+  EXPECT_NEAR(30.0, yReached, 0.1);
+  EXPECT_NEAR(-1200.0, zReached, 0.1);
+}
+
+
