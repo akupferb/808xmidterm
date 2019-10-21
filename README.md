@@ -54,11 +54,23 @@ When not busy with her studies or research, she enjoys spending time with her bo
 
 ## Operation
 
-The main application first sequentially requests the 3D coordinates 
+When run without arguments, main application first sequentially requests the 3D coordinates 
 for the initial end effector position of the robot, 
 then the coordinates of the desired end effector destination,
-and optionally any number of spherical obstacles of any size.  
+and optionally any number of spherical obstacles of any size (double values preferred).
 If the point is unreachable, the user will be prompted to input different end effector coordinates or obstacles.
+
+Optionally, the program can take command line arguments, in the order of:
+[x y z] end effector start position
+[x y z] end effector end position (optional)
+[x y z radius] obstacle (0 or more times)
+
+Example:
+
+          executable [start][---end position--] [-----obstacle 1--rad] [-----obstacle 2--rad]
+./build/app/shell-app 0 0 0 2050.0 30.0 -1200.0 100000.1, 0.2, 0.3 0.5 100000.5, 0.6, 0.7 1.0
+
+This example starts the end effector at the origin, gives it an end position, and two spherical obstacles of different sizes.
 
 ## Dependencies/Libraries
 
@@ -97,11 +109,13 @@ Branch 'codingfunctions' used for implementing the functions as defined in the U
 ## Known Issues/Bugs
 
 As Jacobian calculations are very computationally intensive, pathing between distant points can be quite slow (>10 minutes).
-This current iteration acts as 
+This current iteration acts as a working prototype that can be used as a base for an improved performance application in the future.
+
+Our code is not fully tested with many error and bounds checking.  These remain good candidates for a hypothetical iteration 3 backlog.
 
 ## Doxygen/Documention
 
-cd docs, then run 'doxygen Doxyfile', then check the html or latex directory for documentation.
+'cd docs', then run 'doxygen Doxyfile', then check the html or latex subdirectory for documentation.
 
 ## Backlog/Worklog
 
