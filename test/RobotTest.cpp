@@ -78,9 +78,9 @@ TEST(RobotTest, ComputeFK) {
   EXPECT_NEAR(1820, xFirstPoint, 0.01);
   EXPECT_NEAR(0.00, yFirstPoint, 0.01);
   EXPECT_NEAR(750, zFirstPoint, 0.01);
-  EXPECT_NEAR(2020, xEEPoint, 5); 
-  EXPECT_NEAR(0.0, yEEPoint, 5); 
-  EXPECT_NEAR(-1280, zEEPoint, 5);  
+  EXPECT_NEAR(2020, xEEPoint, 1); 
+  EXPECT_NEAR(0.0, yEEPoint, 1); 
+  EXPECT_NEAR(-1280, zEEPoint, 1);  
 }
 
 TEST(RobotTest, FindCrossProduct) {
@@ -118,9 +118,9 @@ TEST(RobotTest, GetTranformationMatrices) {
   Point dummyPoint(0.0, 0.0, 0.0);
   Robot robot(dummyPoint);
   std::vector<boost::numeric::ublas::matrix<double>> transforms = robot.computeTransformationMatrices(angles);
-  boost::numeric::ublas::matrix<double> transform1 = transforms[2];
-  boost::numeric::ublas::matrix<double> transform2 = transforms[3];
-  boost::numeric::ublas::matrix<double> transform3 = transforms [5];
+  boost::numeric::ublas::matrix<double> transform1 = transforms[3];
+  boost::numeric::ublas::matrix<double> transform2 = transforms[4];
+  boost::numeric::ublas::matrix<double> transform3 = transforms [6];
   
   double value1 = transform1(0,3);
   double value2 = transform2(2,3);
@@ -130,9 +130,9 @@ TEST(RobotTest, GetTranformationMatrices) {
   double value6 = transform3(3,3);
   double value7 = transform3(2,2);
 
-  EXPECT_NEAR(-480, value1, 5);
-  EXPECT_NEAR(2455, value2, 5);
-  EXPECT_NEAR(1, value7, 5);
+  EXPECT_NEAR(-480, value1, 1);
+  EXPECT_NEAR(2455, value2, 1);
+  EXPECT_NEAR(1, value7, 1);
   ASSERT_EQ(0, value3);
   ASSERT_EQ(0, value4);
   ASSERT_EQ(0, value5);
@@ -153,12 +153,12 @@ TEST(RobotTest, FindingJacobian) {
   ASSERT_EQ(6, jacobian.size1());  
   ASSERT_EQ(6, jacobian.size2());
 
-  EXPECT_NEAR(0.0, jacobian(0,0), 5);
-  EXPECT_NEAR(1250, jacobian(2,1), 5);
-  EXPECT_NEAR(0, jacobian(3,4), 5);
-  EXPECT_NEAR(0, jacobian(4,1), 5);
-  EXPECT_NEAR(-1, jacobian(4,2), 5);
-  EXPECT_NEAR(-1, jacobian(5,5), 5);
+  EXPECT_NEAR(0.0, jacobian(0,0), 1);
+  EXPECT_NEAR(1250, jacobian(2,1), 1);
+  EXPECT_NEAR(0, jacobian(3,4), 1);
+  EXPECT_NEAR(0, jacobian(4,1), 1);
+  EXPECT_NEAR(-1, jacobian(4,2), 1);
+  EXPECT_NEAR(-1, jacobian(5,5), 1);
 
 }
 

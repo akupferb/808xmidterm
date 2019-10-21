@@ -121,6 +121,7 @@ std::vector<boost::numeric::ublas::matrix<double>> Robot::computeTransformationM
   
   // Loop through A matrices to get T matrices
   std::vector<boost::numeric::ublas::matrix<double>> tTransforms;
+  tTransforms.push_back(identity);
   for (auto& row : dhParams) {
      aTransform = computeATransform(row);
 	 tTransform = prod(previousTransform, aTransform);
@@ -141,10 +142,12 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
 
   boost::numeric::ublas::matrix<double> jacobian (6,6); 
   std::vector<double> iterator = {0, 1, 2}; 
+  boost::numeric::ublas::matrix<double> trans (3,3);
 
   int index = 0;
   Point robotEEPosition = joints[6];
   joints.pop_back();
+  
   for( auto& joint : joints) {
     Point robotJointPosition = joint;
     double differenceInX = robotEEPosition.getX() - robotJointPosition.getX();
@@ -155,7 +158,6 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
 	differenceVector(1) = differenceInY;
 	differenceVector(2) = differenceInZ;
 
-    boost::numeric::ublas::matrix<double> trans (3,3);
     trans(0,0) = tTransforms[index](0,0); trans(0,1) = tTransforms[index](0,1); 
     trans(0,2) = tTransforms[index](0,2); trans(1,0) = tTransforms[index](1,0);
     trans(1,1) = tTransforms[index](1,1); trans(1,2) = tTransforms[index](1,2);
@@ -163,9 +165,6 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
     trans(2,2) = tTransforms[index](2,2);
     boost::numeric::ublas::vector<double> transformedZAxes = prod(trans,zAxes);
     boost::numeric::ublas::vector<double> crossProductVector = crossProduct(transformedZAxes, differenceVector); 
-//    std::cout<<trans(0,0)<<"   "<<trans(0,1)<<"     "<<trans(0,2)<<std::endl;
-//    std::cout<<trans(1,0)<<"   "<<trans(1,1)<<"     "<<trans(1,2)<<std::endl;
-//    std::cout<<trans(2,0)<<"   "<<trans(2,1)<<"     "<<trans(2,2)<<std::endl<<std::endl;
 
     std::cout<<transformedZAxes(0)<<"    ";
     std::cout<<transformedZAxes(1)<<"    ";
