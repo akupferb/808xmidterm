@@ -4,10 +4,10 @@
  */
 /**
  *  @file       RobotPath.cpp
- *  @author     Lydia Zoghbi
+ *  @author     Lydia Zoghbi, Ryan Bates
  *  @copyright  Copyright ARL 2019
- *  @date       10/13/2019
- *  @version    1.0
+ *  @date       10/21/2019
+ *  @version    1.1
  *
  *  @brief      Definitions for RobotPath.hpp
  *

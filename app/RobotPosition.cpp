@@ -4,10 +4,10 @@
  */
 /**
  *  @file       RobotPosition.cpp
- *  @author     Lydia Zoghbi, Ari Kupferberg
+ *  @author     Ryan Bates, Lydia Zoghbi, Ari Kupferberg
  *  @copyright  Copyright ARL 2019
- *  @date       10/16/2019
- *  @version    1.0
+ *  @date       10/21/2019
+ *  @version    1.1
  *
  *  @brief      Definitions for RobotPosition.hpp
  *

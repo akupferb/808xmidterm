@@ -3,6 +3,5 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/include
     /usr/include/boost
     /usr/include/eigen3/
-    #/home/oooo/boost_1_71_0/boost
 )
 set(CMAKE_BUILD_TYPE Debug)
