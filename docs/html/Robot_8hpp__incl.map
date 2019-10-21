@@ -1,0 +1,8 @@
+<map id="/home/oooo/updates/ARLpathplanner/include/Robot.hpp" name="/home/oooo/updates/ARLpathplanner/include/Robot.hpp">
+<area shape="rect" id="node5" href="$RobotPosition_8hpp.html" title="Header file for consructing a RobotPosition class. " alt="" coords="121,199,250,225"/>
+<area shape="rect" id="node8" href="$Point_8hpp.html" title="Header file for consructing a Point class representing cartesian coordinate points. " alt="" coords="185,437,263,464"/>
+<area shape="rect" id="node9" href="$RobotPath_8hpp.html" title="Header file for consructing a robot path. " alt="" coords="131,117,240,143"/>
+<area shape="rect" id="node10" href="$PathPlanner_8hpp.html" title="Header file for generating a straight line path. " alt="" coords="271,273,390,300"/>
+<area shape="rect" id="node6" href="$Environment_8hpp.html" title="Header file for defining an environment. " alt="" coords="125,273,245,300"/>
+<area shape="rect" id="node7" href="$Obstacle_8hpp.html" title="Header file for defining an obstacle. " alt="" coords="88,355,187,382"/>
+</map>
