@@ -166,10 +166,6 @@ boost::numeric::ublas::matrix<double> Robot::computeJacobian(RobotPosition robot
     boost::numeric::ublas::vector<double> transformedZAxes = prod(trans,zAxes);
     boost::numeric::ublas::vector<double> crossProductVector = crossProduct(transformedZAxes, differenceVector); 
 
-    std::cout<<transformedZAxes(0)<<"    ";
-    std::cout<<transformedZAxes(1)<<"    ";
-    std::cout<<transformedZAxes(2)<<"    "<<std::endl;
-
 	// Populate the Jacobian's columns iteratively 
     for (auto& element : iterator){
 		jacobian(element, index) = crossProductVector(element);
@@ -241,17 +237,16 @@ boost::numeric::ublas::matrix<double> Robot::penroseInverseMatrix(boost::numeric
   return result;
 }
 
-std::vector<RobotPosition> Robot::computeIK(Point targetPoint, std::vector<boost::numeric::ublas::matrix<double>> tTransforms) {
+std::vector<RobotPosition> Robot::computeIK(Point targetPoint) {
 
 	std::vector<RobotPosition> allRobotPositions;
-    boost::numeric::ublas::vector<double> velocity(3);
+    boost::numeric::ublas::vector<double> velocity(6);
 	boost::numeric::ublas::vector<double> theta(6);
 	theta(0) = initialJointAngles[0]; theta(1) = initialJointAngles[1]; theta(2) = initialJointAngles[2];
 	theta(3) = initialJointAngles[3]; theta(4) = initialJointAngles[4]; theta(5) = initialJointAngles[5];
 
 	std::vector<double> jointAngles = initialJointAngles;
 	
-
     std::vector<Point> robotJointPosition = computeFk(jointAngles); 
 	Point eePosition = robotJointPosition.back();
 	PathPlanner pathPlanner;
@@ -260,6 +255,7 @@ std::vector<RobotPosition> Robot::computeIK(Point targetPoint, std::vector<boost
 	double eeX; double eeY; double eeZ;
 	double targetX; double targetY; double targetZ;
 	double norm;
+	int counter = 0;
 	
 	for(auto& pathPoints:getPath) {
 		
@@ -268,30 +264,35 @@ std::vector<RobotPosition> Robot::computeIK(Point targetPoint, std::vector<boost
 		eeX = eePosition.getX(); eeY = eePosition.getY(); eeZ = eePosition.getZ();
 		targetX = pathPoints.getX(); targetY = pathPoints.getY(); targetZ = pathPoints.getZ();
     	velocity(0) = targetX - eeX; velocity(1) = targetY - eeY; velocity(2) = targetZ - eeZ;
+ 		velocity(3) = 0.0; velocity(4) = 0.0; velocity(5) = 0.0;
 		norm = norm_2(velocity);
-		
-		while ( norm > 0.001) {
+	 	counter++;
+		//std::cout<<counter<<std::endl;
+		while ( norm > 0.01) {
 
     		robotJointPosition = computeFk(jointAngles); 
-    		RobotPosition robotPosition(robotJointPosition, jointAngles);
-			allRobotPositions.push_back(robotPosition);
-
-			boost::numeric::ublas::matrix<double> jacobian = computeJacobian(robotPosition, tTransforms);
+			RobotPosition robotPosition(robotJointPosition, jointAngles);
+		    std::vector<boost::numeric::ublas::matrix<double>> tTrans = computeTransformationMatrices(jointAngles);
+			boost::numeric::ublas::matrix<double> jacobian = computeJacobian(robotPosition, tTrans);
 			boost::numeric::ublas::matrix<double> pseudoInverse = penroseInverseMatrix(jacobian);
 			Point eePosition = robotJointPosition.back();
 
 			eeX = eePosition.getX(); eeY = eePosition.getY(); eeZ = eePosition.getZ();
 			targetX = pathPoints.getX(); targetY = pathPoints.getY(); targetZ = pathPoints.getZ();
     		velocity(0) = targetX - eeX; velocity(1) = targetY - eeY; velocity(2) = targetZ - eeZ;
+			velocity(3) = 0.0; velocity(4) = 0.0; velocity(5) = 0.0;
 			norm = norm_2(velocity);
 
 			boost::numeric::ublas::vector<double> deltaTheta = prod(pseudoInverse, velocity);
-			theta = theta + 0.001*deltaTheta;  //this number can be changed to prevent the solution from blowing up
+			theta = theta + 0.0000001*deltaTheta;  //this number can be changed to prevent the solution from blowing up
 			jointAngles[0] = theta(0); jointAngles[1] = theta(1); jointAngles[2] = theta(2);
 			jointAngles[3] = theta(3); jointAngles[4] = theta(4); jointAngles[5] = theta(5);
 
-
 		};
+					std::cout<<norm<<"    "<<getPath.size()-counter<<std::endl;
+		RobotPosition robotPosition(robotJointPosition, jointAngles);
+		allRobotPositions.push_back(robotPosition);
+		//std::cout<<jointAngles[0]<<"   "<<jointAngles[1]<<"    "<<jointAngles[2]<<"    "<<jointAngles[3]<<"   "<<jointAngles[4]<<"    "<<jointAngles[5]<<std::endl;
 	};
 
 return allRobotPositions;

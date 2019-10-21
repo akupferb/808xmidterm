@@ -89,7 +89,7 @@ class Robot {
    *  @param	Vector of Robot's path
    *  @return	Vector of RobotPosition object containing Points of joint positions
    */
-   std::vector<RobotPosition> computeIK(Point targetPoint, std::vector<boost::numeric::ublas::matrix<double>> tTransforms);
+   std::vector<RobotPosition> computeIK(Point targetPoint);
 
   /**
    *  @brief    Computes cross product of the two input vectors
