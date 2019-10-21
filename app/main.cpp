@@ -19,7 +19,7 @@
 
 
 int main(int argc, char *argv[]) {
-  
+
   int argumentsProcessed = 1;
 
 
@@ -94,7 +94,7 @@ int main(int argc, char *argv[]) {
       std::cin >> obstacleCount;
       // we do not use a C++11 range loop here because there is no collection.
       for (int i = 0; i < obstacleCount; i++) {
-      
+
         std::cout << "Input obstacle " << i << " X position: ";
         std::cin >> xInput;
         std::cout << "Input obstacle " << i << " Y position: ";
@@ -103,7 +103,7 @@ int main(int argc, char *argv[]) {
         std::cin >> zInput;
         std::cout << "Input obstacle " << i << " radius: ";
         std::cin >> radius;
-      
+
         Point obstacleCentroid(xInput, yInput, zInput);
         Obstacle obstacle(obstacleCentroid, radius);
         allObstacles.push_back(obstacle);
@@ -117,7 +117,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Analyzing pathing.  Please be patient; this may take a few minutes..." << std::endl;
 
     std::vector<RobotPosition> positionSequence = robot.computeIK(destinationPoint, dummyEnvironment);
-    
+
 
 
     if (positionSequence.size() > 0) {

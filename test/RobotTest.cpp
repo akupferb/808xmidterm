@@ -32,9 +32,8 @@ TEST(RobotTest, PenroseInverseMatrix) {
 
   boost::numeric::ublas::matrix<double> result = robot.penroseInverseMatrix(input);
 
-  
   unsigned int requiredDimension = 3;
-  ASSERT_EQ(requiredDimension, result.size1());  
+  ASSERT_EQ(requiredDimension, result.size1());
   ASSERT_EQ(requiredDimension, result.size2());
 
 
@@ -155,7 +154,7 @@ TEST(RobotTest, FindingJacobian) {
 
 
   unsigned int requiredDimension = 6;
-  ASSERT_EQ(requiredDimension, jacobian.size1());  
+  ASSERT_EQ(requiredDimension, jacobian.size1());
   ASSERT_EQ(requiredDimension, jacobian.size2());
 
 
@@ -208,7 +207,6 @@ TEST(RobotTest, ComputingIK_Clear) {
 
   std::vector<RobotPosition> fullPositions = robot.computeIK(targetPoint, dummyEnvironment);
 
-  
   ASSERT_TRUE(fullPositions.size() > 0);
 
   RobotPosition lastPosition = fullPositions.back();
