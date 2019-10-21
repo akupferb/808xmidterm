@@ -32,8 +32,10 @@ TEST(RobotTest, PenroseInverseMatrix) {
   input(2, 0) = 7.0; input(2, 1) = 16.0; input(2, 2) = -21.0;
 
   boost::numeric::ublas::matrix<double> result = robot.penroseInverseMatrix(input);
-  ASSERT_EQ(3, result.size1());  
-  ASSERT_EQ(3, result.size2());
+  
+  unsigned int requiredDimension = 3;
+  ASSERT_EQ(requiredDimension, result.size1());  
+  ASSERT_EQ(requiredDimension, result.size2());
 
 
   EXPECT_NEAR(0.306, result(0, 0), 0.01);
@@ -150,8 +152,9 @@ TEST(RobotTest, FindingJacobian) {
   std::vector<boost::numeric::ublas::matrix<double>> transforms = robot.computeTransformationMatrices(jointAngles);
   boost::numeric::ublas::matrix<double> jacobian = robot.computeJacobian(robotPos, transforms);
 
-  ASSERT_EQ(6, jacobian.size1());  
-  ASSERT_EQ(6, jacobian.size2());
+  unsigned int requiredDimension = 6;
+  ASSERT_EQ(requiredDimension, jacobian.size1());  
+  ASSERT_EQ(requiredDimension, jacobian.size2());
 
   EXPECT_NEAR(0.0, jacobian(0,0), 1);
   EXPECT_NEAR(1250, jacobian(2,1), 1);
