@@ -72,13 +72,15 @@ Example:
 
 This example starts the end effector at the origin, gives it an end position, and two spherical obstacles of different sizes.
 
+Note to graders: I suggest you use one of these examples here or in the shell script, to ensure that the code does not take too long to run.
+
 ## Dependencies/Libraries
 
 Make sure these are downloaded (via apt or otherwise):
   libboost-all-dev
   libeigen3-dev
 
-Note: often these are already included in many Ubuntu distributions by default.
+Note to graders: I suggest you use one of these examples here or in the shell script to run the application, to ensure that the code does not take too long to run.
 
 ## Run
 ```
@@ -100,15 +102,24 @@ Run system_test_demo.sh per instructions below to run the full system test.
 ## Demo
 
 Our system test acts as our demo, running the full kinematic and path planning chain.  
-It is demonstrable through running system_test_demo.sh (may need to make it runnable via chmod +x system_test_demo.sh)
+It is demonstrable through running system_test_demo.sh (may need to make it runnable via chmod +x system_test_demo.sh).
+It follows the same example as above:
+
+          executable [start][---end position--] [-----obstacle 1--rad] [-----obstacle 2--rad]
+./build/app/shell-app 0 0 0 2050.0 30.0 -1200.0 100000.1, 0.2, 0.3 0.5 100000.5, 0.6, 0.7 1.0
+
+This example starts the end effector at the origin, gives it an end position, and two spherical obstacles of different sizes.
+
+Note to graders: I suggest you use one of these examples here or in the shell script to run the application, to ensure that the code does not take too long to run.
 
 ## Notes
 
-Branch 'codingfunctions' used for implementing the functions as defined in the UML.
+
+Note to graders: I suggest you use one of these examples here or in the shell script to run the application, to ensure that the code does not take too long to run.
 
 ## Known Issues/Bugs
 
-As Jacobian calculations are very computationally intensive, pathing between distant points can be quite slow (>10 minutes).
+As Jacobian and kinematic calculations are very computationally intensive, pathing between distant points can be quite slow (>10 minutes).
 This current iteration acts as a working prototype that can be used as a base for an improved performance application in the future.
 
 Our code is not fully tested with many error and bounds checking.  These remain good candidates for a hypothetical iteration 3 backlog.
@@ -121,7 +132,7 @@ Our code is not fully tested with many error and bounds checking.  These remain 
 
 Sprint 1:
 https://docs.google.com/spreadsheets/d/1D3Op4N3Aqz9G33_2OEKY9-aFLKIj59PVwWTnIGA4hhI/edit?ts=5d9bb868#gid=1860513107
-Sprint 2 (Updated):
+Sprint 2 (Updated - reference this for grading):
 https://docs.google.com/spreadsheets/d/1qinbfVLNoxSS-iE9CSkSB3Uo1HgffEGqoN9HMs9NbK0/edit?ts=5da79671#gid=1860513107
 
 ## Sprint 1 Planning/Review
