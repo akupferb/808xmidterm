@@ -1,12 +1,11 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       Obstacle.hpp
  *  @author     Lydia Zoghbi, Ari Kupferberg
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019
  *  @date       10/16/2019
  *  @version    1.0
  *
@@ -51,6 +50,5 @@ class Obstacle {
    */
    double getRadius();
 };
-
 
 #endif // INCLUDE_OBSTACLE_HPP_

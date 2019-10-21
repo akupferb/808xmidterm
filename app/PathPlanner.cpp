@@ -1,12 +1,11 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       PathPlanner.cpp
  *  @author     Lydia Zoghbi, Ari Kupferberg
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019 
  *  @date       10/16/2019
  *  @version    1.0
  *
@@ -18,8 +17,8 @@
 #include <iostream>
 
 std::vector<Point> PathPlanner::findStraightPath(Point startPoint, Point endPoint) {
-// Finding the vector direction along which the end effector should move
 
+// Finding the vector direction along which the end effector should move
   double xDirectionStart = startPoint.getX();
   double yDirectionStart = startPoint.getY();
   double zDirectionStart = startPoint.getZ();
@@ -56,5 +55,4 @@ std::vector<Point> PathPlanner::findStraightPath(Point startPoint, Point endPoin
   }
   return pathPoints;
 }
-
 

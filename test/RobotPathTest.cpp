@@ -1,12 +1,11 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       RobotPathTest.cpp
  *  @author     Lydia Zoghbi
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019cp
  *  @date       10/13/2019
  *  @version    1.0
  *
@@ -30,7 +29,7 @@ TEST(RobotPath, Constructor) {
    inputAngles1.push_back(3.0);
 
    RobotPosition robotPosition1(inputJoints1, inputAngles1);
-   
+
    Point point3(1.2, 1.2, 1.4);
    Point point4(1.8, 1.7, 1.6);
 
@@ -47,7 +46,7 @@ TEST(RobotPath, Constructor) {
    std::vector<RobotPosition> newRobotPositions;
    newRobotPositions.push_back(robotPosition1);
    newRobotPositions.push_back(robotPosition2);
-   
+
    RobotPath newRobotPath(newRobotPositions);
 
    std::vector<RobotPosition> retrievedRobotPositions = newRobotPath.getPositions();
@@ -55,14 +54,14 @@ TEST(RobotPath, Constructor) {
 
    std::vector<Point> retrievedJoints = retrievedRobotPosition1.getJoints();
    std::vector<double> retrievedAngles = retrievedRobotPosition1.getAngles();
-  
+
    Point retrievedJointsPoint = retrievedJoints[1];
    double newX = retrievedJointsPoint.getX();
    double newY = retrievedJointsPoint.getY();
    double newZ = retrievedJointsPoint.getZ();
    double angle1 = retrievedAngles[0];
    double angle2 = retrievedAngles[1];
- 
+
    ASSERT_EQ(5.6, angle1);
    ASSERT_EQ(2.3, angle2);
    ASSERT_EQ(1.8, newX);
@@ -84,7 +83,7 @@ TEST(RobotPath, Boolean) {
    inputAngles1.push_back(3.0);
 
    RobotPosition robotPosition1(inputJoints1, inputAngles1);
-   
+
    Point point3(1.2, 1.2, 1.4);
    Point point4(1.8, 1.7, 1.6);
 
@@ -101,10 +100,10 @@ TEST(RobotPath, Boolean) {
    std::vector<RobotPosition> newRobotPositions;
    newRobotPositions.push_back(robotPosition1);
    newRobotPositions.push_back(robotPosition2);
-   
+
    RobotPath newRobotPath(newRobotPositions);
 
-   std::vector<Obstacle> allObstacles;;   
+   std::vector<Obstacle> allObstacles;
    Environment dummyEnvironment(allObstacles);
 
    bool collisionCheck = newRobotPath.existsCollision(dummyEnvironment);

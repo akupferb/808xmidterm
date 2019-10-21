@@ -1,12 +1,11 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       Environment.hpp
  *  @author     Lydia Zoghbi, Ari Kupferberg
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019
  *  @date       10/16/2019
  *  @version    1.0
  *
@@ -21,25 +20,25 @@
 #include <Obstacle.hpp>
 
 /**
- *  @brief      Environment class formed of one or more obstacles
+ *  @brief       Environment class formed of one or more obstacles
  */
 
 class Environment {
  private:
    std::vector<Obstacle> obstacles;
-   
+
  public:
   /**
-   *  @brief      Constructor for an Environment class object containing Obstacle elemements
-   *  @param      Vector of Obstacle class objects
-   *  @return 	Instance of Environment
+   *  @brief     Constructor for an Environment class object containing Obstacle elemements
+   *  @param     Vector of Obstacle class objects
+   *  @return 	 Instance of Environment
    */
    explicit Environment(std::vector<Obstacle>);
 
   /**
-   *  @brief      Obtaining obstacles from the Environment class object
-   *  @param      None
-   *  @return 	Vector of Obstacle objects
+   *  @brief     Obtaining obstacles from the Environment class object
+   *  @param     None
+   *  @return 	 Vector of Obstacle objects
    */
    std::vector<Obstacle> getObstacles();
 

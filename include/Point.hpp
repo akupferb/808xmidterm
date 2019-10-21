@@ -6,7 +6,7 @@
 /**
  *  @file       Point.hpp
  *  @author     Lydia Zoghbi, Ari Kupferberg
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019
  *  @date       10/16/2019
  *  @version    1.0
  *
@@ -27,33 +27,32 @@ class Point {
 
  public:
   /**
-   *  @brief      Creating a Point class
+   *  @brief    Creating a Point class
    *  @param	Coordinates of a point as double
    *  @return	Instance of Point
    */
    explicit Point(double newX = 0, double newY = 0, double newZ = 0);
 
   /**
-   *  @brief      Retrieving the x coordinate of a Point
+   *  @brief    Retrieving the x coordinate of a Point
    *  @param	None
    *  @return	Value of x double
    */
    double getX();
 
   /**
-   *  @brief      Retrieving the y coordinate of a Point
+   *  @brief    Retrieving the y coordinate of a Point
    *  @param	None
    *  @return	Value of y double
    */
    double getY();
 
   /**
-   *  @brief      Retrieving the z coordinate of a Point
+   *  @brief    Retrieving the z coordinate of a Point
    *  @param	None
    *  @return	Value of z double
    */
    double getZ();
 };
-
 
 #endif // INCLUDE_POINT_HPP_

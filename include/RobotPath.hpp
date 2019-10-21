@@ -1,12 +1,11 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       RobotPath.hpp
  *  @author     Lydia Zoghbi, Ari Kupferberg
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019
  *  @date       10/16/2019
  *  @version    1.0
  *
@@ -27,29 +26,28 @@
 class RobotPath {
  private:
    std::vector<RobotPosition> robotPositions;
-   
+
  public:
   /**
-   *  @brief      Constructor for a RobotPath object
+   *  @brief    Constructor for a RobotPath object
    *  @param	Vector of RobotPosition class containing the position of Robot's joints
    *  @return	Instance of RobotPath
    */
    explicit RobotPath(std::vector<RobotPosition>);
 
   /**
-   *  @brief      Retrieve positions from the RobotPosition class
+   *  @brief    Retrieve positions from the RobotPosition class
    *  @param	None
    *  @return	Vector of RobotPosition object
    */
    std::vector<RobotPosition> getPositions();
 
   /**
-   *  @brief      Check for collision with obstacles
+   *  @brief    Check for collision with obstacles
    *  @param	None
    *  @return	Boolean true for collision with obstacles
    */
    bool existsCollision(Environment environment);
 };
-
 
 #endif // INCLUDE_ROBOTPATH_HPP_
