@@ -1,12 +1,11 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       RobotPositionTest.cpp
  *  @author     Lydia Zoghbi
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
+ *  @copyright  Copyright ARL 2019
  *  @date       10/13/2019
  *  @version    1.0
  *
@@ -22,11 +21,11 @@ TEST(RobotPosition, Constructor) {
    Point point2(0.5, 0.6, 0.7);
    Obstacle obstacle1(point1, 0.5);
    Obstacle obstacle2(point2, 1.0);
-   
+
    std::vector<Obstacle> allObstacles;;
    allObstacles.push_back(obstacle1);
    allObstacles.push_back(obstacle2);
-   
+
    Environment dummyEnvironment(allObstacles);
 
    std::vector<Point> inputJoints;
@@ -40,7 +39,7 @@ TEST(RobotPosition, Constructor) {
    RobotPosition robotPosition(inputJoints, inputAngles);
    std::vector<Point> retrievedJoints = robotPosition.getJoints();
    std::vector<double> retrievedAngles = robotPosition.getAngles();
-  
+
    Point retrievedJointsPoint = retrievedJoints[1];
    double newX = retrievedJointsPoint.getX();
    double newY = retrievedJointsPoint.getY();
@@ -61,11 +60,11 @@ TEST(RobotPosition, Boolean) {
    Point point2(0.5, 0.6, 0.7);
    Obstacle obstacle1(point1, 0.5);
    Obstacle obstacle2(point2, 1.0);
-   
+
    std::vector<Obstacle> allObstacles;;
    allObstacles.push_back(obstacle1);
    allObstacles.push_back(obstacle2);
-   
+
    Environment dummyEnvironment(allObstacles);
 
    std::vector<Point> inputJoints;

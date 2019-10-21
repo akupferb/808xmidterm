@@ -1,0 +1,91 @@
+\hypertarget{classRobotPath}{}\section{Robot\+Path Class Reference}
+\label{classRobotPath}\index{Robot\+Path@{Robot\+Path}}
+
+
+Class for creating a robot path.  
+
+
+
+
+{\ttfamily \#include $<$Robot\+Path.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRobotPath_ad4830998a6f4315b946be510b5c50733}{Robot\+Path} (std\+::vector$<$ \hyperlink{classRobotPosition}{Robot\+Position} $>$)
+\begin{DoxyCompactList}\small\item\em Constructor for a \hyperlink{classRobotPath}{Robot\+Path} object. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classRobotPosition}{Robot\+Position} $>$ \hyperlink{classRobotPath_aa1fc081c6f032ea7ac1d48bd2bb81b8f}{get\+Positions} ()
+\begin{DoxyCompactList}\small\item\em Retrieve positions from the \hyperlink{classRobotPosition}{Robot\+Position} class. \end{DoxyCompactList}\item 
+bool \hyperlink{classRobotPath_a92e2647d35cfe7c53e182188debc5dac}{exists\+Collision} (\hyperlink{classEnvironment}{Environment} environment)
+\begin{DoxyCompactList}\small\item\em Check for collision with obstacles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for creating a robot path. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Robot\+Path@{Robot\+Path}!Robot\+Path@{Robot\+Path}}
+\index{Robot\+Path@{Robot\+Path}!Robot\+Path@{Robot\+Path}}
+\subsubsection[{\texorpdfstring{Robot\+Path(std\+::vector$<$ Robot\+Position $>$)}{RobotPath(std::vector< RobotPosition >)}}]{\setlength{\rightskip}{0pt plus 5cm}Robot\+Path\+::\+Robot\+Path (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Robot\+Position} $>$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classRobotPath_ad4830998a6f4315b946be510b5c50733}{}\label{classRobotPath_ad4830998a6f4315b946be510b5c50733}
+
+
+Constructor for a \hyperlink{classRobotPath}{Robot\+Path} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector} & of \hyperlink{classRobotPosition}{Robot\+Position} class containing the position of \hyperlink{classRobot}{Robot}\textquotesingle{}s joints \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Instance of \hyperlink{classRobotPath}{Robot\+Path} 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Robot\+Path@{Robot\+Path}!exists\+Collision@{exists\+Collision}}
+\index{exists\+Collision@{exists\+Collision}!Robot\+Path@{Robot\+Path}}
+\subsubsection[{\texorpdfstring{exists\+Collision(\+Environment environment)}{existsCollision(Environment environment)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Robot\+Path\+::exists\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Environment}}]{environment}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobotPath_a92e2647d35cfe7c53e182188debc5dac}{}\label{classRobotPath_a92e2647d35cfe7c53e182188debc5dac}
+
+
+Check for collision with obstacles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean true for collision with obstacles 
+\end{DoxyReturn}
+\index{Robot\+Path@{Robot\+Path}!get\+Positions@{get\+Positions}}
+\index{get\+Positions@{get\+Positions}!Robot\+Path@{Robot\+Path}}
+\subsubsection[{\texorpdfstring{get\+Positions()}{getPositions()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Robot\+Position}$>$ Robot\+Path\+::get\+Positions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobotPath_aa1fc081c6f032ea7ac1d48bd2bb81b8f}{}\label{classRobotPath_aa1fc081c6f032ea7ac1d48bd2bb81b8f}
+
+
+Retrieve positions from the \hyperlink{classRobotPosition}{Robot\+Position} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \hyperlink{classRobotPosition}{Robot\+Position} object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/oooo/updates/\+A\+R\+Lpathplanner/include/\hyperlink{RobotPath_8hpp}{Robot\+Path.\+hpp}\end{DoxyCompactItemize}

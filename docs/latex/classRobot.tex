@@ -1,0 +1,205 @@
+\hypertarget{classRobot}{}\section{Robot Class Reference}
+\label{classRobot}\index{Robot@{Robot}}
+
+
+Class for creating a \hyperlink{classRobot}{Robot} object containing useful information about the system.  
+
+
+
+
+{\ttfamily \#include $<$Robot.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRobot_a7af51d6234664963ca4abc6cab119f25}{Robot} (const \hyperlink{classPoint}{Point} \&starting\+Pos)
+\begin{DoxyCompactList}\small\item\em Constructor for class \hyperlink{classRobot}{Robot}. \end{DoxyCompactList}\item 
+boost\+::numeric\+::ublas\+::matrix$<$ double $>$ \hyperlink{classRobot_a3a05c417c60d0debe793049a5e79173c}{compute\+A\+Transform} (std\+::vector$<$ double $>$ dh\+Row)
+\begin{DoxyCompactList}\small\item\em Compute the intermediate transformation between two DH frames. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classPoint}{Point} $>$ \hyperlink{classRobot_ab171faaa3b20c6fa42d873f5b948fa9e}{compute\+Fk} (std\+::vector$<$ double $>$ joint\+Angles)
+\begin{DoxyCompactList}\small\item\em Computing the forward kinematics for the \hyperlink{classRobot}{Robot}. \end{DoxyCompactList}\item 
+std\+::vector$<$ boost\+::numeric\+::ublas\+::matrix$<$ double $>$ $>$ \hyperlink{classRobot_af1f293a6bf4e62d6511f64375e4ae632}{compute\+Transformation\+Matrices} (std\+::vector$<$ double $>$ joint\+Angles)
+\begin{DoxyCompactList}\small\item\em Computing a set of transformation matrices. \end{DoxyCompactList}\item 
+boost\+::numeric\+::ublas\+::matrix$<$ double $>$ \hyperlink{classRobot_ade66f279e45e0baeb83ed1b11076819a}{compute\+Jacobian} (\hyperlink{classRobotPosition}{Robot\+Position} robot\+Position, std\+::vector$<$ boost\+::numeric\+::ublas\+::matrix$<$ double $>$$>$ t\+Transforms)
+\begin{DoxyCompactList}\small\item\em Computing the geometric Jacobian matrix. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classRobotPosition}{Robot\+Position} $>$ \hyperlink{classRobot_a9106cabf9fc8dbd3331c7730c26f1167}{compute\+IK} (\hyperlink{classPoint}{Point} target\+Point, \hyperlink{classEnvironment}{Environment} environment)
+\begin{DoxyCompactList}\small\item\em Computing the inverse kinematics for \hyperlink{classRobot}{Robot}\textquotesingle{}s generated path. \end{DoxyCompactList}\item 
+boost\+::numeric\+::ublas\+::vector$<$ double $>$ \hyperlink{classRobot_a8ab2ca7f55b9971e8077a925ed12f266}{cross\+Product} (boost\+::numeric\+::ublas\+::vector$<$ double $>$ vector1, boost\+::numeric\+::ublas\+::vector$<$ double $>$ vector2)
+\begin{DoxyCompactList}\small\item\em Computes cross product of the two input vectors. \end{DoxyCompactList}\item 
+boost\+::numeric\+::ublas\+::matrix$<$ double $>$ \hyperlink{classRobot_a0ab556c3912a69115b3cac81feda7b29}{penrose\+Inverse\+Matrix} (boost\+::numeric\+::ublas\+::matrix$<$ double $>$ mat)
+\begin{DoxyCompactList}\small\item\em Computes the Moore-\/\+Penrose pseudoinverse. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for creating a \hyperlink{classRobot}{Robot} object containing useful information about the system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Robot@{Robot}!Robot@{Robot}}
+\index{Robot@{Robot}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{Robot(const Point \&starting\+Pos)}{Robot(const Point &startingPos)}}]{\setlength{\rightskip}{0pt plus 5cm}Robot\+::\+Robot (
+\begin{DoxyParamCaption}
+\item[{const {\bf Point} \&}]{starting\+Pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classRobot_a7af51d6234664963ca4abc6cab119f25}{}\label{classRobot_a7af51d6234664963ca4abc6cab119f25}
+
+
+Constructor for class \hyperlink{classRobot}{Robot}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classPoint}{Point}} & of the robot\textquotesingle{}s end effector position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Instance of robot 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Robot@{Robot}!compute\+A\+Transform@{compute\+A\+Transform}}
+\index{compute\+A\+Transform@{compute\+A\+Transform}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{compute\+A\+Transform(std\+::vector$<$ double $>$ dh\+Row)}{computeATransform(std::vector< double > dhRow)}}]{\setlength{\rightskip}{0pt plus 5cm}boost\+::numeric\+::ublas\+::matrix$<$double$>$ Robot\+::compute\+A\+Transform (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$}]{dh\+Row}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a3a05c417c60d0debe793049a5e79173c}{}\label{classRobot_a3a05c417c60d0debe793049a5e79173c}
+
+
+Compute the intermediate transformation between two DH frames. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em DH} & Table as matrix double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}A\textquotesingle{} transformation matrix 
+\end{DoxyReturn}
+\index{Robot@{Robot}!compute\+Fk@{compute\+Fk}}
+\index{compute\+Fk@{compute\+Fk}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{compute\+Fk(std\+::vector$<$ double $>$ joint\+Angles)}{computeFk(std::vector< double > jointAngles)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Point}$>$ Robot\+::compute\+Fk (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$}]{joint\+Angles}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_ab171faaa3b20c6fa42d873f5b948fa9e}{}\label{classRobot_ab171faaa3b20c6fa42d873f5b948fa9e}
+
+
+Computing the forward kinematics for the \hyperlink{classRobot}{Robot}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector} & of \hyperlink{classRobot}{Robot}\textquotesingle{}s joint angles as double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \hyperlink{classPoint}{Point} objects depicting \hyperlink{classRobot}{Robot}\textquotesingle{}s joint positions 
+\end{DoxyReturn}
+\index{Robot@{Robot}!compute\+IK@{compute\+IK}}
+\index{compute\+IK@{compute\+IK}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{compute\+I\+K(\+Point target\+Point, Environment environment)}{computeIK(Point targetPoint, Environment environment)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Robot\+Position}$>$ Robot\+::compute\+IK (
+\begin{DoxyParamCaption}
+\item[{{\bf Point}}]{target\+Point, }
+\item[{{\bf Environment}}]{environment}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a9106cabf9fc8dbd3331c7730c26f1167}{}\label{classRobot_a9106cabf9fc8dbd3331c7730c26f1167}
+
+
+Computing the inverse kinematics for \hyperlink{classRobot}{Robot}\textquotesingle{}s generated path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & end effector\textquotesingle{}s target position \\
+\hline
+{\em The} & environment to check for collisions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \hyperlink{classRobotPosition}{Robot\+Position} object containing Points of joint positions 
+\end{DoxyReturn}
+\index{Robot@{Robot}!compute\+Jacobian@{compute\+Jacobian}}
+\index{compute\+Jacobian@{compute\+Jacobian}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{compute\+Jacobian(\+Robot\+Position robot\+Position, std\+::vector$<$ boost\+::numeric\+::ublas\+::matrix$<$ double $>$$>$ t\+Transforms)}{computeJacobian(RobotPosition robotPosition, std::vector< boost::numeric::ublas::matrix< double >> tTransforms)}}]{\setlength{\rightskip}{0pt plus 5cm}boost\+::numeric\+::ublas\+::matrix$<$double$>$ Robot\+::compute\+Jacobian (
+\begin{DoxyParamCaption}
+\item[{{\bf Robot\+Position}}]{robot\+Position, }
+\item[{std\+::vector$<$ boost\+::numeric\+::ublas\+::matrix$<$ double $>$$>$}]{t\+Transforms}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_ade66f279e45e0baeb83ed1b11076819a}{}\label{classRobot_ade66f279e45e0baeb83ed1b11076819a}
+
+
+Computing the geometric Jacobian matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Robot\textquotesingle{}s} & current position for performing a cross product \\
+\hline
+{\em Vector} & of transformation matrices \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Jacobian matrix 
+\end{DoxyReturn}
+\index{Robot@{Robot}!compute\+Transformation\+Matrices@{compute\+Transformation\+Matrices}}
+\index{compute\+Transformation\+Matrices@{compute\+Transformation\+Matrices}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{compute\+Transformation\+Matrices(std\+::vector$<$ double $>$ joint\+Angles)}{computeTransformationMatrices(std::vector< double > jointAngles)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$boost\+::numeric\+::ublas\+::matrix$<$double$>$ $>$ Robot\+::compute\+Transformation\+Matrices (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$}]{joint\+Angles}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_af1f293a6bf4e62d6511f64375e4ae632}{}\label{classRobot_af1f293a6bf4e62d6511f64375e4ae632}
+
+
+Computing a set of transformation matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector} & of \hyperlink{classRobot}{Robot}\textquotesingle{}s joint angles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of matrices representing the transformation from each joint frame to the base frame 
+\end{DoxyReturn}
+\index{Robot@{Robot}!cross\+Product@{cross\+Product}}
+\index{cross\+Product@{cross\+Product}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{cross\+Product(boost\+::numeric\+::ublas\+::vector$<$ double $>$ vector1, boost\+::numeric\+::ublas\+::vector$<$ double $>$ vector2)}{crossProduct(boost::numeric::ublas::vector< double > vector1, boost::numeric::ublas::vector< double > vector2)}}]{\setlength{\rightskip}{0pt plus 5cm}boost\+::numeric\+::ublas\+::vector$<$double$>$ Robot\+::cross\+Product (
+\begin{DoxyParamCaption}
+\item[{boost\+::numeric\+::ublas\+::vector$<$ double $>$}]{vector1, }
+\item[{boost\+::numeric\+::ublas\+::vector$<$ double $>$}]{vector2}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a8ab2ca7f55b9971e8077a925ed12f266}{}\label{classRobot_a8ab2ca7f55b9971e8077a925ed12f266}
+
+
+Computes cross product of the two input vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector} & to compute cross product of (1 of 2) \\
+\hline
+{\em Vector} & to compute cross product of (2 of 2) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of the resultant cross product 
+\end{DoxyReturn}
+\index{Robot@{Robot}!penrose\+Inverse\+Matrix@{penrose\+Inverse\+Matrix}}
+\index{penrose\+Inverse\+Matrix@{penrose\+Inverse\+Matrix}!Robot@{Robot}}
+\subsubsection[{\texorpdfstring{penrose\+Inverse\+Matrix(boost\+::numeric\+::ublas\+::matrix$<$ double $>$ mat)}{penroseInverseMatrix(boost::numeric::ublas::matrix< double > mat)}}]{\setlength{\rightskip}{0pt plus 5cm}boost\+::numeric\+::ublas\+::matrix$<$double$>$ Robot\+::penrose\+Inverse\+Matrix (
+\begin{DoxyParamCaption}
+\item[{boost\+::numeric\+::ublas\+::matrix$<$ double $>$}]{mat}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobot_a0ab556c3912a69115b3cac81feda7b29}{}\label{classRobot_a0ab556c3912a69115b3cac81feda7b29}
+
+
+Computes the Moore-\/\+Penrose pseudoinverse. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Input} & matrix to find the pseudoinverse of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pseudoinverse matrix result 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/oooo/updates/\+A\+R\+Lpathplanner/include/\hyperlink{Robot_8hpp}{Robot.\+hpp}\end{DoxyCompactItemize}

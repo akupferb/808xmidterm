@@ -1,13 +1,12 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       Obstacle.hpp
- *  @author     Lydia Zoghbi
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
+ *  @author     Lydia Zoghbi, Ari Kupferberg
+ *  @copyright  Copyright ARL 2019
+ *  @date       10/16/2019
  *  @version    1.0
  *
  *  @brief      Header file for defining an obstacle
@@ -16,6 +15,7 @@
 
 #ifndef INCLUDE_OBSTACLE_HPP_
 #define INCLUDE_OBSTACLE_HPP_
+
 #include "Point.hpp"
 
 /**
@@ -24,31 +24,31 @@
  */
 
 class Obstacle {
-private:
-    Point centroid;
-    double radius;
-public:
+ private:
+  Point centroid;
+  double radius;
 
-/**
- *  @brief      Constructor for the class Obstacle 
- *  @param	Point class of obstacle centroid position and corresponding radius
- *  @return	Instance of Obstacle 
- */
-    Obstacle(Point startCentroid, double startRadius);
+ public:
+  /**
+   *  @brief      Constructor for the class Obstacle 
+   *  @param	Point class of obstacle centroid position and corresponding radius
+   *  @return	Instance of Obstacle 
+   */
+   Obstacle(Point, double);
 
-/**
- *  @brief      Obtaining the centroid of the Obstacle
- *  @param	None
- *  @return	Point class of Obstacle's centroid position (which can subsequently provide the (x, y, z) coordinates
- */
-    Point getCentroid();
+  /**
+   *  @brief      Obtaining the centroid of the Obstacle
+   *  @param	None
+   *  @return	Point class of Obstacle's centroid position (which can subsequently provide the (x, y, z) coordinates
+   */
+   Point getCentroid();
 
-
-/**
- *  @brief      Obtaining the radius of the Obstacle
- *  @param	None
- *  @return	Double of Obstacle's radius.
- */
-    double getRadius();
+  /**
+   *  @brief      Obtaining the radius of the Obstacle
+   *  @param	None
+   *  @return	Double of Obstacle's radius.
+   */
+   double getRadius();
 };
+
 #endif // INCLUDE_OBSTACLE_HPP_

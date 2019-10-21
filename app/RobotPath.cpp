@@ -1,14 +1,13 @@
 /*
- *  Distributed under the Boost Software License.
- *  Version 1.0 (See accompanying file LICENSE_1_0.txt
- *  or copy at http://www.boost.org/LICENSE_1_0.txt)
+ *  Distributed under our modified Boost Software License.
+ *  Version 1.0 (see accompanying file LICENSE)
  */
 /**
  *  @file       RobotPath.cpp
- *  @author     Lydia Zoghbi
- *  @copyright  Copyright 2019 ARL. All rights reserved as per license.
- *  @date       10/13/2019
- *  @version    1.0
+ *  @author     Lydia Zoghbi, Ryan Bates
+ *  @copyright  Copyright ARL 2019
+ *  @date       10/21/2019
+ *  @version    1.1
  *
  *  @brief      Definitions for RobotPath.hpp
  *
@@ -17,10 +16,17 @@
 #include "RobotPath.hpp"
 
 RobotPath::RobotPath(std::vector<RobotPosition> newRobotPositions) {
-    robotPositions = newRobotPositions;
+  robotPositions = newRobotPositions;
 }
-    std::vector<RobotPosition> RobotPath::getPositions() {return robotPositions;}
 
-    bool RobotPath::existsCollision() {
-return false;
+bool RobotPath::existsCollision(Environment environment) {
+  std::vector<Obstacle> obstacles = environment.getObstacles();
+  for (auto position : robotPositions) {
+    if (!(position.checkCollision(environment))) {
+      return true;
+    }
+  }
+  return false;
 }
+
+std::vector<RobotPosition> RobotPath::getPositions() {return robotPositions;}

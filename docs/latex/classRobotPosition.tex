@@ -1,0 +1,113 @@
+\hypertarget{classRobotPosition}{}\section{Robot\+Position Class Reference}
+\label{classRobotPosition}\index{Robot\+Position@{Robot\+Position}}
+
+
+Class for creating robot positions.  
+
+
+
+
+{\ttfamily \#include $<$Robot\+Position.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRobotPosition_ae2b70e932e262489bb09f6fef05ce3a7}{Robot\+Position} (std\+::vector$<$ \hyperlink{classPoint}{Point} $>$, std\+::vector$<$ double $>$)
+\begin{DoxyCompactList}\small\item\em Constructor for creating \hyperlink{classRobotPosition}{Robot\+Position}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{classPoint}{Point} $>$ \hyperlink{classRobotPosition_a3a9c92d5c2f2cd279d58b071389f362d}{get\+Joints} ()
+\begin{DoxyCompactList}\small\item\em Retrieve joints from \hyperlink{classRobotPosition}{Robot\+Position} class. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \hyperlink{classRobotPosition_aaff4025c0db233f1cdf5fd649e377ce0}{get\+Angles} ()
+\begin{DoxyCompactList}\small\item\em Retrieve angles from \hyperlink{classRobotPosition}{Robot\+Position} class. \end{DoxyCompactList}\item 
+bool \hyperlink{classRobotPosition_a7808d09b49b887e5dd4fda96bffe9675}{check\+Collision} (\hyperlink{classEnvironment}{Environment})
+\begin{DoxyCompactList}\small\item\em Check for collision with obstacles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for creating robot positions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Robot\+Position@{Robot\+Position}!Robot\+Position@{Robot\+Position}}
+\index{Robot\+Position@{Robot\+Position}!Robot\+Position@{Robot\+Position}}
+\subsubsection[{\texorpdfstring{Robot\+Position(std\+::vector$<$ Point $>$, std\+::vector$<$ double $>$)}{RobotPosition(std::vector< Point >, std::vector< double >)}}]{\setlength{\rightskip}{0pt plus 5cm}Robot\+Position\+::\+Robot\+Position (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Point} $>$}]{, }
+\item[{std\+::vector$<$ double $>$}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobotPosition_ae2b70e932e262489bb09f6fef05ce3a7}{}\label{classRobotPosition_ae2b70e932e262489bb09f6fef05ce3a7}
+
+
+Constructor for creating \hyperlink{classRobotPosition}{Robot\+Position}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector} & of Points for \hyperlink{classRobot}{Robot}\textquotesingle{}s joints positions and vector of joint angles as double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Instance of \hyperlink{classRobotPosition}{Robot\+Position} 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Robot\+Position@{Robot\+Position}!check\+Collision@{check\+Collision}}
+\index{check\+Collision@{check\+Collision}!Robot\+Position@{Robot\+Position}}
+\subsubsection[{\texorpdfstring{check\+Collision(\+Environment)}{checkCollision(Environment)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Robot\+Position\+::check\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf Environment}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobotPosition_a7808d09b49b887e5dd4fda96bffe9675}{}\label{classRobotPosition_a7808d09b49b887e5dd4fda96bffe9675}
+
+
+Check for collision with obstacles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \hyperlink{classEnvironment}{Environment}} & containing obstacles\textquotesingle{} location and radius \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean as true for collision 
+\end{DoxyReturn}
+\index{Robot\+Position@{Robot\+Position}!get\+Angles@{get\+Angles}}
+\index{get\+Angles@{get\+Angles}!Robot\+Position@{Robot\+Position}}
+\subsubsection[{\texorpdfstring{get\+Angles()}{getAngles()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$double$>$ Robot\+Position\+::get\+Angles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobotPosition_aaff4025c0db233f1cdf5fd649e377ce0}{}\label{classRobotPosition_aaff4025c0db233f1cdf5fd649e377ce0}
+
+
+Retrieve angles from \hyperlink{classRobotPosition}{Robot\+Position} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of \hyperlink{classRobot}{Robot}\textquotesingle{}s joints angles as double 
+\end{DoxyReturn}
+\index{Robot\+Position@{Robot\+Position}!get\+Joints@{get\+Joints}}
+\index{get\+Joints@{get\+Joints}!Robot\+Position@{Robot\+Position}}
+\subsubsection[{\texorpdfstring{get\+Joints()}{getJoints()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Point}$>$ Robot\+Position\+::get\+Joints (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classRobotPosition_a3a9c92d5c2f2cd279d58b071389f362d}{}\label{classRobotPosition_a3a9c92d5c2f2cd279d58b071389f362d}
+
+
+Retrieve joints from \hyperlink{classRobotPosition}{Robot\+Position} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of Points of \hyperlink{classRobot}{Robot}\textquotesingle{}s joints positions 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/oooo/updates/\+A\+R\+Lpathplanner/include/\hyperlink{RobotPosition_8hpp}{Robot\+Position.\+hpp}\end{DoxyCompactItemize}
