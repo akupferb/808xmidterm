@@ -42,7 +42,7 @@ This software uses the open-source Boost (and in part, the  MPL2.0) licenses, wi
 Ryan is an embedded software engineer with five years of experience at Northrop Grumman.  
 Upon graduation in December he aims to find work bringing software processes and skills to the interdisciplinary field of robotics.
 * Ari Kupferberg (akupferb)*
-Ari is a master's student in robotics and a TA for medical robotics.
+Ari is a master's student in robotics and a Teaching Assistant for various Controls & Robotics courses, with his current appointment for Medical Robotics. He is a mechanical engineer with a strong background in Control Theory and Mechatronics, and enjoys learning new tools and enhancing his skills in the field of robotics.
 * Lydia Zoghbi (lydiazoghbi)*
 A master's recipient and a Dean's Fellowship PhD student at the University of Maryland, 
 Lydia is a member of IMAPS and is an active researcher with biomedical robotic machine learning, 
