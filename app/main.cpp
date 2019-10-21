@@ -14,10 +14,9 @@
  */
 
 #include <iostream>
-//#include <Eigen/QR>
+
 #include <Robot.hpp>
-//using std::cout;
-//using std::endl;
+
 
 int main(int argc, char *argv[]) {
   
@@ -109,21 +108,12 @@ int main(int argc, char *argv[]) {
         Obstacle obstacle(obstacleCentroid, radius);
         allObstacles.push_back(obstacle);
 
-
-        //Point point1(0.1, 0.2, 0.3);
-        //Point point2(0.5, 0.6, 0.7);
-        //Obstacle obstacle1(point1, 0.5);
-        //Obstacle obstacle2(point2, 1.0);
-        //allObstacles.push_back(obstacle1);
-        //allObstacles.push_back(obstacle2);
-
       }
     }
 
     Environment dummyEnvironment(allObstacles);
 
 
-    //std::cout << "Testing movement from " << Analyzing pathing.  Please be patient; this may take a few minutes..." << std::endl;
     std::cout << "Analyzing pathing.  Please be patient; this may take a few minutes..." << std::endl;
 
     std::vector<RobotPosition> positionSequence = robot.computeIK(destinationPoint, dummyEnvironment);
@@ -154,22 +144,6 @@ int main(int argc, char *argv[]) {
     // else manual input
     std::cout << "Destination point unreachable.  Please input a new destination/environmental obstacles." << std::endl;
 
-    //std::vector<RobotPosition> positionSequence = robot.computeIK(destinationPoint);
-
-  //  if (positionSequence.size() > 0) {
-    //    std::cout << "Path found:" << std::endl;
-      //  for (auto robotPosition : positionSequence) {
-        //  for (auto angleValue : robotPosition.getAngles()) {
-          //  std::cout << angleValue << "	";
-          //}
-          //for (auto point : robotPosition.getJoints()) {
-           // std::cout << point.getX() << ", " << point.getY() << "	";
-          //}
-       // }
-        //break;
-    //} else {
-      //std::cout << "Destination point unreachable.  Please input a new destination." << std::endl;
-    //}
   }
   return 0;
 }
